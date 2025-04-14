@@ -1,0 +1,5 @@
+/mnt/c/Viktor/Faks/Zavrsni/ZavrsniRad/build/CMakeFiles/msa.dir
+/mnt/c/Viktor/Faks/Zavrsni/ZavrsniRad/build/CMakeFiles/edit_cache.dir
+/mnt/c/Viktor/Faks/Zavrsni/ZavrsniRad/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Viktor/Faks/Zavrsni/ZavrsniRad/build/bioparser/CMakeFiles/edit_cache.dir
+/mnt/c/Viktor/Faks/Zavrsni/ZavrsniRad/build/bioparser/CMakeFiles/rebuild_cache.dir
