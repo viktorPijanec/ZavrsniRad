@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/msa.dir/src/msa.cpp.o -o msa  /usr/lib/x86_64-linux-gnu/libz.so 
