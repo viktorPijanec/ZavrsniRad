@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 #include "bioparser/fasta_parser.hpp"
 
 using namespace std;
@@ -95,15 +96,18 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < sequences.size(); i++)
     {
-        cout << sequences[i]->name << endl;
-        cout << sequences[i]->data << endl
+        cout << sequences[i]->name << endl
+             << sequences[i]->data << endl
              << endl;
     }
 
+    // unordered_map<pair<int, int>, int> alignments;
     for (int i = 0; i < sequences.size(); ++i)
     {
         for (int j = i + 1; j < sequences.size(); ++j)
         {
+            // pair<int, int> par = make_pair(i, j);
+            // alignments.insert(par, Align(sequences[i]->data, sequences[j]->data));
             cout << "Align(" << i + 1 << "," << j + 1 << ") : " << Align(sequences[i]->data, sequences[j]->data) << endl;
         }
     }
