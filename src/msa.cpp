@@ -4,6 +4,18 @@
 
 using namespace std;
 
+namespace std
+{
+    template <>
+    struct hash<std::pair<int, int>>
+    {
+        std::size_t operator()(const std::pair<int, int> &p) const noexcept
+        {
+            return std::hash<int>()(p.first) ^ (std::hash<int>()(p.second) << 1);
+        }
+    };
+}
+
 int GAP = -1, MATCH = 1, MISMATCH = 0;
 
 // struct for bioparser
@@ -22,7 +34,7 @@ public:
     std::size_t length() const { return data_len; }
 };
 
-int Align(string seq1, string seq2)
+int Align(string seq1, string seq2, string *path)
 {
     enum DIRECTION
     {
@@ -73,15 +85,38 @@ int Align(string seq1, string seq2)
         }
     }
 
-    // cout << endl;
-    // for (int i = 0; i < 10; ++i)
-    // {
-    //     for (int j = 0; j < 10; ++j)
-    //     {
-    //         cout << matrica[i][j].score << " ";
-    //     }
-    //     cout << '\n';
-    // }
+    if (path != nullptr)
+    {
+        // cout << endl;
+        // for (int i = 0; i < 10; ++i)
+        // {
+        //     for (int j = 0; j < 10; ++j)
+        //     {
+        //         printf("%3d ", matrica[i][j].score);
+        //     }
+        //     cout << '\n';
+        // }
+        int treni = seq1.length(), trenj = seq2.length();
+        while (treni > 0 && trenj > 0)
+        {
+            if (matrica[treni][trenj].direction == DIJAGONAL)
+            {
+                path->insert(0, "D");
+                treni--;
+                trenj--;
+            }
+            else if (matrica[treni][trenj].direction == UP)
+            {
+                path->insert(0, "U");
+                treni--;
+            }
+            else
+            {
+                path->insert(0, "L");
+                trenj--;
+            }
+        }
+    }
 
     return matrica[seq1.length()][seq2.length()].score;
 }
@@ -101,15 +136,57 @@ int main(int argc, char *argv[])
              << endl;
     }
 
-    // unordered_map<pair<int, int>, int> alignments;
+    unordered_map<pair<int, int>, int> alignments;
+
+    for (const auto &[key, value] : alignments)
+    {
+        cout << key.first << "," << key.second << " : " << value << endl;
+    }
+    int maxi = 0;
+    int maxj = 0;
+    int maxalign = -100000;
     for (int i = 0; i < sequences.size(); ++i)
     {
         for (int j = i + 1; j < sequences.size(); ++j)
         {
-            // pair<int, int> par = make_pair(i, j);
-            // alignments.insert(par, Align(sequences[i]->data, sequences[j]->data));
-            cout << "Align(" << i + 1 << "," << j + 1 << ") : " << Align(sequences[i]->data, sequences[j]->data) << endl;
+            pair<int, int> par = make_pair(i, j);
+            alignments.insert({par, Align(sequences[i]->data, sequences[j]->data, nullptr)});
+            if (alignments[par] > maxalign)
+            {
+                maxi = i;
+                maxj = j;
+                maxalign = alignments[par];
+            }
+            cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
         }
     }
+    string pomstr;
+    Align(sequences[maxi]->data, sequences[maxj]->data, &pomstr);
+    cout << endl
+         << "Pokazni primjerak na najboljem paru (u ovom slucaju " + to_string(maxi + 1) + " i " + to_string(maxj + 1) + "):" << endl
+         << endl;
+    // cout << pomstr << endl;
+    string novi_str1 = "", novi_str2 = "";
+    int ind1 = 0, ind2 = 0;
+    for (int i = 0; i < pomstr.length(); ++i)
+    {
+        if (pomstr[i] == 'D')
+        {
+            novi_str1 += sequences[maxi]->data[ind1++];
+            novi_str2 += sequences[maxj]->data[ind2++];
+        }
+        else if (pomstr[i] == 'U')
+        {
+            novi_str1 += sequences[maxi]->data[ind1++];
+            novi_str2 += '-';
+        }
+        else
+        {
+            novi_str1 += '-';
+            novi_str2 += sequences[maxj]->data[ind2++];
+        }
+    }
+    cout << novi_str1 << endl;
+    cout << novi_str2 << endl;
     return 0;
 }
