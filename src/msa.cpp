@@ -1,5 +1,7 @@
 #include <iostream>
 #include <unordered_map>
+#include <set>
+#include <algorithm>
 #include "bioparser/fasta_parser.hpp"
 
 using namespace std;
@@ -7,11 +9,24 @@ using namespace std;
 namespace std
 {
     template <>
-    struct hash<std::pair<int, int>>
+    struct hash<std::pair<string, string>>
     {
-        std::size_t operator()(const std::pair<int, int> &p) const noexcept
+        std::size_t operator()(const std::pair<string, string> &p) const noexcept
         {
-            return std::hash<int>()(p.first) ^ (std::hash<int>()(p.second) << 1);
+            return std::hash<string>()(p.first) ^ (std::hash<string>()(p.second) << 1);
+        }
+    };
+
+    template <>
+    struct hash<std::set<int>>
+    {
+        std::size_t operator()(const std::set<int> &s) const noexcept
+        {
+            std::size_t seed = 0;
+            for (int i : s){
+                seed ^= std::hash<int>()(i) + 0x9e3779b9 + (seed<<6) + (seed>>2);
+            }
+            return seed;
         }
     };
 }
@@ -121,6 +136,146 @@ int Align(string seq1, string seq2, string *path)
     return matrica[seq1.length()][seq2.length()].score;
 }
 
+bool PairContainsString(pair<string,string> p, string str){
+    if (p.first == str || p.second == str) return true;
+    return false;
+}
+
+// string smallString(string str1, string str2){
+//     if (str1<str2) return str1;
+//     else return str2;
+// }
+
+// string bigString(string str1, string str2){
+//     if (str1>str2) return str1;
+//     else return str2;
+// }
+
+string BuildTree(unordered_map<pair<string,string>,double> initial_alignments)
+{
+    unordered_map<pair<string,string>,double> alignments = initial_alignments;
+    set<string> set_svih_cvorova;
+
+    for (const auto &[key,value] : alignments){
+        set_svih_cvorova.insert(key.first);
+        set_svih_cvorova.insert(key.second);
+    }
+
+    unordered_map<string, set<int>> atomi;
+    unordered_map<string, string> ime_do_stringa;
+
+    string ret;
+    while(!alignments.empty()){
+        // trazimo max
+        double max_val = alignments.begin()->second;
+        pair<string,string> max_pair = alignments.begin()->first;
+        for (const auto &[key,value] : alignments){
+            if (value > max_val){
+                max_val = value;
+                max_pair = key;
+            }
+        }
+
+        // cout << "max pair: " << max_pair.first << " " << max_pair.second << endl;
+
+        // brisanje para iz mape
+        alignments.erase(max_pair);
+
+        // brisanje cvora iz seta svih cvorova
+        set_svih_cvorova.erase(max_pair.first);
+        set_svih_cvorova.erase(max_pair.second);
+
+        string ime_novog_cvora = "";
+        ime_novog_cvora += max_pair.first + "_" + max_pair.second;
+        set<int> clanovi_novog_cvora;
+        string str_novi_cvor = "(";
+        // provjera jel prvi clan atom ili cvor
+        if (max_pair.first.find('_') == string::npos){
+            clanovi_novog_cvora.insert(stoi(max_pair.first));
+            str_novi_cvor += max_pair.first;
+        }
+        else{
+            clanovi_novog_cvora.insert(atomi[max_pair.first].begin(),atomi[max_pair.first].end()); 
+            str_novi_cvor += ime_do_stringa[max_pair.first];
+        }
+        str_novi_cvor += ",";
+        if (max_pair.second.find('_') == string::npos){
+            clanovi_novog_cvora.insert(stoi(max_pair.second));
+            str_novi_cvor += max_pair.second;
+        }
+        else{
+            clanovi_novog_cvora.insert(atomi[max_pair.second].begin(),atomi[max_pair.second].end()); 
+            str_novi_cvor += ime_do_stringa[max_pair.second];
+        }
+        str_novi_cvor += ")";
+        // dodavanje clanova u mapu
+        atomi[ime_novog_cvora] = clanovi_novog_cvora;
+        ime_do_stringa[ime_novog_cvora] = str_novi_cvor;
+        ret = str_novi_cvor;
+        // brisanje i stvaranje novih parova kao srednjih vrijednosti
+        for (auto str : set_svih_cvorova){
+            double avg = 0;
+            int brojac = 0;
+            // cout << "tren str: " << str << endl;
+            if (str.find('_') == string::npos){
+                if (max_pair.first.find('_') == string::npos){
+                    avg += initial_alignments[make_pair(min(str,max_pair.first),max(str,max_pair.first))];
+                    brojac++;
+                }
+                else{
+                    for (int i : atomi[max_pair.first]){
+                        avg+=initial_alignments[make_pair(min(str,to_string(i)),max(str,to_string(i)))];
+                        brojac++;
+                    }
+                }
+                if (max_pair.second.find('_') == string::npos){
+                    avg += initial_alignments[make_pair(min(str,max_pair.second),max(str,max_pair.second))];
+                    brojac++;
+                }
+                else{
+                    for (int i : atomi[max_pair.second]){
+                        avg+=initial_alignments[make_pair(min(str,to_string(i)),max(str,to_string(i)))];
+                        brojac++;
+                    }
+                }
+            }
+            else{
+                for (int i : atomi[str]){
+                    if (max_pair.first.find('_') == string::npos){
+                        avg += initial_alignments[make_pair(min(to_string(i),max_pair.first),max(to_string(i),max_pair.first))];
+                        brojac++;
+                    }
+                    else{
+                        for (int j : atomi[max_pair.first]){
+                            avg += initial_alignments[make_pair(to_string(min(i,j)),to_string(max(i,j)))];
+                            brojac++;
+                        }
+                    }
+                    if (max_pair.second.find('_') == string::npos){
+                        avg += initial_alignments[make_pair(min(to_string(i),max_pair.second),max(to_string(i),max_pair.second))];
+                        brojac++;
+                    }
+                    else{
+                        for (int j : atomi[max_pair.second]){
+                            avg += initial_alignments[make_pair(to_string(min(i,j)),to_string(max(i,j)))];
+                            brojac++;
+                        }
+                    }
+                }
+            }
+            alignments.erase(make_pair(min(str,max_pair.first),max(str,max_pair.first)));
+            alignments.erase(make_pair(min(str,max_pair.second),max(str,max_pair.second)));
+            avg/=brojac;
+            alignments[make_pair(min(ime_novog_cvora,str),max(ime_novog_cvora,str))] = avg;
+            // for (const auto& [key,value] : alignments){
+            //     cout << key.first << " " << key.second << " " << value << endl;
+            // }
+        }
+        set_svih_cvorova.insert(ime_novog_cvora);
+    }
+    return ret;
+}
+
 int main(int argc, char *argv[])
 {
     // creating parser
@@ -136,22 +291,22 @@ int main(int argc, char *argv[])
              << endl;
     }
 
-    unordered_map<pair<int, int>, int> alignments;
+    unordered_map<pair<string, string>, double> alignments;
 
-    for (const auto &[key, value] : alignments)
-    {
-        cout << key.first << "," << key.second << " : " << value << endl;
-    }
-    int maxi = 0;
-    int maxj = 0;
-    int maxalign = -100000;
+    int maxi, maxj, maxalign;
     for (int i = 0; i < sequences.size(); ++i)
     {
         for (int j = i + 1; j < sequences.size(); ++j)
         {
-            pair<int, int> par = make_pair(i, j);
-            alignments.insert({par, Align(sequences[i]->data, sequences[j]->data, nullptr)});
-            if (alignments[par] > maxalign)
+            pair<string, string> par = make_pair(to_string(i), to_string(j));
+            alignments.insert({par, (double)Align(sequences[i]->data, sequences[j]->data, nullptr)});
+            if (i == 0 && j == 1)
+            {
+                maxi = i;
+                maxj = j;
+                maxalign = alignments[par];
+            }
+            else if (alignments[par] > maxalign)
             {
                 maxi = i;
                 maxj = j;
@@ -160,6 +315,13 @@ int main(int argc, char *argv[])
             cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
         }
     }
+
+    cout << "Building filogenic tree..." << endl;
+    string filogen_stablo = BuildTree(alignments);
+    cout << "Tree created." << endl;
+
+    cout << filogen_stablo << endl;
+
     string pomstr;
     Align(sequences[maxi]->data, sequences[maxj]->data, &pomstr);
     cout << endl
