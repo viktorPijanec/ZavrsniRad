@@ -6,6 +6,8 @@
     "vector": "cpp",
     "xstring": "cpp",
     "ostream": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "xlocale": "cpp",
+    "string": "cpp"
   }
 }
