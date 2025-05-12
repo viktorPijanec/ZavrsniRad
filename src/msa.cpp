@@ -33,7 +33,7 @@ namespace std
 }
 
 // constants
-int GAP = -1, MATCH = 1, MISMATCH = 0;
+int GAP = -5, MATCH = 2, MISMATCH = -1;
 
 // struct for bioparser
 struct FastaSequence
@@ -58,14 +58,14 @@ int CalcAlign(vector<char> &seq1, vector<char> &seq2)
     {
         for (int j = i + 1; j < seq1.size(); j++)
         {
-            if (seq1[i] == seq1[j])
+            if (seq1[i] == seq1[j] && seq1[i] != '-')
                 ret += MATCH;
             else
                 ret += MISMATCH;
         }
         for (int j = 0; j < seq2.size(); j++)
         {
-            if (seq1[i] == seq2[j])
+            if (seq1[i] == seq2[j] && seq1[i] != '-')
                 ret += MATCH;
             else
                 ret += MISMATCH;
@@ -75,7 +75,7 @@ int CalcAlign(vector<char> &seq1, vector<char> &seq2)
     {
         for (int j = i + 1; j < seq2.size(); j++)
         {
-            if (seq2[i] == seq2[j])
+            if (seq2[i] == seq2[j] && seq1[i] != '-')
                 ret += MATCH;
             else
                 ret += MISMATCH;
@@ -116,7 +116,7 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
         for (int j = 1; j <= seq2.size(); ++j)
         {
             int gore = matrica[i - 1][j].score + GAP, lijevo = matrica[i][j - 1].score + GAP;
-            int dijagonala = CalcAlign(seq1[i - 1], seq2[j - 1]);
+            int dijagonala = matrica[i - 1][j - 1].score + CalcAlign(seq1[i - 1], seq2[j - 1]);
             if (max(max(gore, lijevo), dijagonala) == gore)
             {
                 matrica[i][j].score = gore;
@@ -134,6 +134,18 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
             }
         }
     }
+    // if (seq1[0].size() == 1 && seq2[0].size() == 1)
+    // {
+    //     cout << "matrica: " << endl;
+    //     for (int i = 0; i <= seq1.size(); ++i)
+    //     {
+    //         for (int j = 0; j <= seq2.size(); ++j)
+    //         {
+    //             cout << matrica[i][j].score << " ";
+    //         }
+    //         cout << endl;
+    //     }
+    // }
 
     // building alignment
     int treni = seq1.size(), trenj = seq2.size();
@@ -217,6 +229,19 @@ int Align(string &seq1, string &seq2, string *path)
             }
         }
     }
+    /*
+    if (seq1[0] == 'M' && seq2[0] == 'M' && seq1[1] == 'Q' && seq2[1] == 'H')
+    {
+        cout << "matrica: " << endl;
+        for (int i = 0; i <= seq1.size(); ++i)
+        {
+            for (int j = 0; j <= seq2.size(); ++j)
+            {
+                cout << matrica[i][j].score << " ";
+            }
+            cout << endl;
+        }
+    }*/
 
     if (path != nullptr)
     {
@@ -462,14 +487,14 @@ string IzgradiPoStablu(string stablo, unordered_map<string, vector<vector<char>>
         vector<vector<char>> temp;
         AlignMultiple(filogen_stablo_map[prvi], filogen_stablo_map[drugi], temp);
         // ispis tempa
-        for (int i = 0; i < temp[0].size(); i++)
-        {
-            for (int j = 0; j < temp.size(); j++)
-            {
-                cout << temp[j][i];
-            }
-            cout << endl;
-        }
+        // for (int i = 0; i < temp[0].size(); i++)
+        // {
+        //     for (int j = 0; j < temp.size(); j++)
+        //     {
+        //         cout << temp[j][i];
+        //     }
+        //     cout << endl;
+        // }
         filogen_stablo_map[zadnji] = temp;
         return zadnji;
     }
