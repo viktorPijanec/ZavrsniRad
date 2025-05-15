@@ -33,7 +33,7 @@ namespace std
 }
 
 // constants
-int GAP = -5, MATCH = 2, MISMATCH = -1;
+int GAP = -1, MATCH = 1, MISMATCH = 0;
 
 // struct for bioparser
 struct FastaSequence
@@ -102,12 +102,12 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
 
     for (int i = 0; i <= seq2.size(); ++i)
     {
-        matrica[0][i].score = i * GAP;
+        matrica[0][i].score = 0; // i * GAP
         matrica[0][i].direction = LEFT;
     }
     for (int i = 1; i <= seq1.size(); ++i)
     {
-        matrica[i][0].score = i * GAP;
+        matrica[i][0].score = 0; // i * GAP
         matrica[i][0].direction = UP;
     }
 
