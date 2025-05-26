@@ -3,6 +3,7 @@
 #include <set>
 #include <algorithm>
 #include "bioparser/fasta_parser.hpp"
+#include <fstream>
 
 using namespace std;
 
@@ -33,7 +34,7 @@ namespace std
 }
 
 // constants
-int GAP = -5, MATCH = 2, MISMATCH = -1;
+int GAP_OPEN = -5, MATCH = 5, MISMATCH = -1, GAP_EXT = -2;
 
 // struct for bioparser
 struct FastaSequence
@@ -98,16 +99,17 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
         DIRECTION direction;
     };
 
-    Cell matrica[seq1.size() + 1][seq2.size() + 1];
+    vector<vector<Cell>> matrica(seq1.size() + 1, vector<Cell>(seq2.size() + 1));
 
-    for (int i = 0; i <= seq2.size(); ++i)
+    matrica[0][0].score = GAP_OPEN;
+    for (int i = 1; i <= seq2.size(); ++i)
     {
-        matrica[0][i].score = i * GAP;
+        matrica[0][i].score = matrica[0][i - 1].score + GAP_EXT;
         matrica[0][i].direction = LEFT;
     }
     for (int i = 1; i <= seq1.size(); ++i)
     {
-        matrica[i][0].score = i * GAP;
+        matrica[i][0].score = matrica[i - 1][0].score + GAP_EXT;
         matrica[i][0].direction = UP;
     }
 
@@ -115,7 +117,15 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
     {
         for (int j = 1; j <= seq2.size(); ++j)
         {
-            int gore = matrica[i - 1][j].score + GAP, lijevo = matrica[i][j - 1].score + GAP;
+            int gore, lijevo;
+            if (matrica[i - 1][j].direction == UP || matrica[i - 1][j].direction == LEFT)
+                gore = matrica[i - 1][j].score + GAP_EXT;
+            else
+                gore = matrica[i - 1][j].score + GAP_OPEN;
+            if (matrica[i][j - 1].direction == UP || matrica[i][j - 1].direction == LEFT)
+                lijevo = matrica[i][j - 1].score + GAP_EXT;
+            else
+                lijevo = matrica[i][j - 1].score + GAP_OPEN;
             int dijagonala = matrica[i - 1][j - 1].score + CalcAlign(seq1[i - 1], seq2[j - 1]);
             if (max(max(gore, lijevo), dijagonala) == gore)
             {
@@ -144,6 +154,27 @@ void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vecto
     //             cout << matrica[i][j].score << " ";
     //         }
     //         cout << endl;
+    //     }
+    // }
+
+    // finding best alignment - used for semi global
+    // int maxalign = 0, maxi = 0, maxj = 0;
+    // for (int i = 0; i <= seq1.size(); ++i)
+    // {
+    //     if (matrica[i][seq2.size()].score > maxalign)
+    //     {
+    //         maxalign = matrica[i][seq2.size()].score;
+    //         maxi = i;
+    //         maxj = seq2.size();
+    //     }
+    // }
+    // for (int i = 0; i <= seq2.size(); ++i)
+    // {
+    //     if (matrica[seq1.size()][i].score > maxalign)
+    //     {
+    //         maxalign = matrica[seq1.size()][i].score;
+    //         maxi = seq1.size();
+    //         maxj = i;
     //     }
     // }
 
@@ -193,16 +224,17 @@ int Align(string &seq1, string &seq2, string *path)
         DIRECTION direction;
     };
 
-    Cell matrica[seq1.size() + 1][seq2.size() + 1];
+    vector<vector<Cell>> matrica(seq1.size() + 1, vector<Cell>(seq2.size() + 1));
 
-    for (int i = 0; i <= seq2.size(); ++i)
+    matrica[0][0].score = GAP_OPEN;
+    for (int i = 1; i <= seq2.size(); ++i)
     {
-        matrica[0][i].score = i * GAP;
+        matrica[0][i].score = matrica[0][i - 1].score + GAP_EXT;
         matrica[0][i].direction = LEFT;
     }
     for (int i = 1; i <= seq1.size(); ++i)
     {
-        matrica[i][0].score = i * GAP;
+        matrica[i][0].score = matrica[i - 1][0].score + GAP_EXT;
         matrica[i][0].direction = UP;
     }
 
@@ -210,7 +242,15 @@ int Align(string &seq1, string &seq2, string *path)
     {
         for (int j = 1; j <= seq2.size(); ++j)
         {
-            int gore = matrica[i - 1][j].score + GAP, lijevo = matrica[i][j - 1].score + GAP;
+            int gore, lijevo;
+            if (matrica[i - 1][j].direction == UP || matrica[i - 1][j].direction == LEFT)
+                gore = matrica[i - 1][j].score + GAP_EXT;
+            else
+                gore = matrica[i - 1][j].score + GAP_OPEN;
+            if (matrica[i][j - 1].direction == UP || matrica[i][j - 1].direction == LEFT)
+                lijevo = matrica[i][j - 1].score + GAP_EXT;
+            else
+                lijevo = matrica[i][j - 1].score + GAP_OPEN;
             int dijagonala = seq1[i - 1] == seq2[j - 1] ? matrica[i - 1][j - 1].score + MATCH : matrica[i - 1][j - 1].score + MISMATCH;
             if (max(max(gore, lijevo), dijagonala) == gore)
             {
@@ -277,7 +317,7 @@ bool PairContainsString(pair<string, string> p, string str)
     return false;
 }
 
-string BuildTree(unordered_map<pair<string, string>, double> initial_alignments)
+string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments)
 {
     unordered_map<pair<string, string>, double> alignments = initial_alignments;
     set<string> set_svih_cvorova;
@@ -331,6 +371,7 @@ string BuildTree(unordered_map<pair<string, string>, double> initial_alignments)
             str_novi_cvor += ime_do_stringa[max_pair.first];
         }
         str_novi_cvor += ",";
+        // provjera jel drugi clan atom ili cvor
         if (max_pair.second.find('_') == string::npos)
         {
             clanovi_novog_cvora.insert(stoi(max_pair.second));
@@ -341,7 +382,7 @@ string BuildTree(unordered_map<pair<string, string>, double> initial_alignments)
             clanovi_novog_cvora.insert(atomi[max_pair.second].begin(), atomi[max_pair.second].end());
             str_novi_cvor += ime_do_stringa[max_pair.second];
         }
-        str_novi_cvor += ")";
+        str_novi_cvor += ")\n";
         // dodavanje clanova u mapu
         atomi[ime_novog_cvora] = clanovi_novog_cvora;
         ime_do_stringa[ime_novog_cvora] = str_novi_cvor;
@@ -413,14 +454,21 @@ string BuildTree(unordered_map<pair<string, string>, double> initial_alignments)
                     }
                 }
             }
-            alignments.erase(make_pair(min(str, max_pair.first), max(str, max_pair.first)));
-            alignments.erase(make_pair(min(str, max_pair.second), max(str, max_pair.second)));
+            if (str.find('_') == string::npos && max_pair.first.find('_') == string::npos)
+                alignments.erase(make_pair(to_string(min(stoi(str), stoi(max_pair.first))), to_string(max(stoi(str), stoi(max_pair.first)))));
+            else
+                alignments.erase(make_pair(min(str, max_pair.first), max(str, max_pair.first)));
+            if (str.find('_') == string::npos && max_pair.second.find('_') == string::npos)
+                alignments.erase(make_pair(to_string(min(stoi(str), stoi(max_pair.second))), to_string(max(stoi(str), stoi(max_pair.second)))));
+            else
+                alignments.erase(make_pair(min(str, max_pair.second), max(str, max_pair.second)));
             avg /= brojac;
             alignments[make_pair(min(ime_novog_cvora, str), max(ime_novog_cvora, str))] = avg;
-            // for (const auto& [key,value] : alignments){
-            //     cout << key.first << " " << key.second << " " << value << endl;
-            // }
         }
+        // for (const auto &[key, value] : alignments)
+        // {
+        //     cout << key.first << " " << key.second << " " << value << endl;
+        // }
         set_svih_cvorova.insert(ime_novog_cvora);
     }
     return ret;
@@ -537,8 +585,6 @@ int main(int argc, char *argv[])
 
     unordered_map<pair<string, string>, double> alignments;
 
-    int maxi, maxj, maxalign;
-    string maxpath;
     for (int i = 0; i < sequences.size(); ++i)
     {
         for (int j = i + 1; j < sequences.size(); ++j)
@@ -546,70 +592,43 @@ int main(int argc, char *argv[])
             pair<string, string> par = make_pair(to_string(i), to_string(j));
             string trenpath;
             alignments.insert({par, (double)Align(sequences[i]->data, sequences[j]->data, &trenpath)});
-            if (i == 0 && j == 1)
-            {
-                maxi = i;
-                maxj = j;
-                maxalign = alignments[par];
-                maxpath = trenpath;
-            }
-            else if (alignments[par] > maxalign)
-            {
-                maxi = i;
-                maxj = j;
-                maxalign = alignments[par];
-                maxpath = trenpath;
-            }
             cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
         }
     }
 
     cout << "Building filogenic tree..." << endl;
     string filogen_stablo = BuildTree(alignments);
-    cout << "Tree created." << endl;
 
-    cout << filogen_stablo << endl;
+    // cout << "Tree created." << endl;
+    ofstream filogen("filogen_stablo.txt");
+    filogen << filogen_stablo;
+    filogen.close();
+    // cout << filogen_stablo << endl;
 
     unordered_map<string, vector<vector<char>>> filogen_stablo_map;
     string zadnji_kljuc;
 
     IzgradiPoStablu(filogen_stablo, filogen_stablo_map, zadnji_kljuc, sequences);
 
-    cout << "Izgraden msa:  " << endl
-         << endl;
+    int br_umetanja = 0;
+
+    ofstream complete_msa("izgraden_msa.txt");
     for (int i = 0; i < filogen_stablo_map[zadnji_kljuc][0].size(); i++)
     {
+        complete_msa << ">" << i + 1 << "\t\t";
         for (int j = 0; j < filogen_stablo_map[zadnji_kljuc].size(); j++)
         {
-            cout << filogen_stablo_map[zadnji_kljuc][j][i];
+            if (j % 10 == 0)
+                complete_msa << " ";
+            if (filogen_stablo_map[zadnji_kljuc][j][i] == '-')
+                br_umetanja++;
+            complete_msa << filogen_stablo_map[zadnji_kljuc][j][i];
         }
-        cout << endl;
+        complete_msa << endl;
     }
+    complete_msa.close();
 
-    cout << endl
-         << "Pokazni primjerak na najboljem paru (u ovom slucaju " + to_string(maxi + 1) + " i " + to_string(maxj + 1) + "):" << endl
-         << endl;
-    string novi_str1 = "", novi_str2 = "";
-    int ind1 = 0, ind2 = 0;
-    for (int i = 0; i < maxpath.length(); ++i)
-    {
-        if (maxpath[i] == 'D')
-        {
-            novi_str1 += sequences[maxi]->data[ind1++];
-            novi_str2 += sequences[maxj]->data[ind2++];
-        }
-        else if (maxpath[i] == 'U')
-        {
-            novi_str1 += sequences[maxi]->data[ind1++];
-            novi_str2 += '-';
-        }
-        else
-        {
-            novi_str1 += '-';
-            novi_str2 += sequences[maxj]->data[ind2++];
-        }
-    }
-    cout << novi_str1 << endl;
-    cout << novi_str2 << endl;
+    cout << "broj umetanja je " << br_umetanja << endl;
+
     return 0;
 }
