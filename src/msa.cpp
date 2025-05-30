@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <set>
 #include <algorithm>
+#include <getopt.h>
 #include "bioparser/fasta_parser.hpp"
 #include <fstream>
 
@@ -36,6 +37,17 @@ namespace std
 // constants
 int GAP_OPEN = -20, MATCH = 9, MISMATCH = -1, GAP_EXT = -7;
 
+void print_help()
+{
+    cerr << "Usage: ./msa [options] <file>\n"
+         << "Options:\n"
+         << "  -h, --help       Show this help message and exit\n"
+         << "  -m, --match      Value for match score (default: 5)\n"
+         << "  -n, --mismatch   Value for mismatch penalty (default: -1)\n"
+         << "  -g, --gap        Value for gap open penalty (default: -5)\n"
+         << "  -e, --ext        Value for gap extend penalty (default: -2)\n"
+         << "\n";
+}
 // struct for bioparser
 struct FastaSequence
 {
@@ -577,6 +589,56 @@ string IzgradiPoStablu(string stablo, unordered_map<string, vector<vector<char>>
 
 int main(int argc, char *argv[])
 {
+    // Define long options
+    const struct option long_options[] = {
+        {"help", no_argument, nullptr, 'h'},
+        {"match", required_argument, nullptr, 'm'},
+        {"mismatch", required_argument, nullptr, 'n'},
+        {"gap", required_argument, nullptr, 'g'},
+        {"ext", required_argument, nullptr, 'e'},
+        {nullptr, 0, nullptr, 0}};
+
+    int option_index = 0;
+    int opt;
+
+    // Parse command line arguments
+    while ((opt = getopt_long(argc, argv, "hm:n:g:e:", long_options, &option_index)) != -1)
+    {
+        switch (opt)
+        {
+        case 'h':
+            print_help();
+            return 0;
+        case 'm':
+            MATCH = atoi(optarg);
+            break;
+        case 'n':
+            MISMATCH = atoi(optarg);
+            break;
+        case 'g':
+            GAP_OPEN = atoi(optarg);
+            break;
+        case 'e':
+            GAP_EXT = atoi(optarg);
+            break;
+        case '?':
+            print_help();
+            return 1;
+        default:
+            abort();
+        }
+    }
+
+    // After options, we expect two additional arguments (reference_file and fragments_file)
+    if (argc - optind < 1)
+    {
+        cerr << "Error: Missing required file arguments.\n";
+        print_help();
+        return 1;
+    }
+
+    std::ios_base::sync_with_stdio(false);
+
     // creating parser
     auto parser = bioparser::Parser<FastaSequence>::Create<bioparser::FastaParser>(argv[1]);
 
