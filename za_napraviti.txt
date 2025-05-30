@@ -1,11 +1,1 @@
-promjeniti gap, mismatch, match
-
 formatirati ispis ko u clustalw
-
---help i ispis da mozes sam preko terminala zadavati nest
-
-matrice pretvoriti u vektore
-
-//paralelizacija
-
-//optimizacija matrica

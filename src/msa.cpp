@@ -34,7 +34,7 @@ namespace std
 }
 
 // constants
-int GAP_OPEN = -5, MATCH = 5, MISMATCH = -1, GAP_EXT = -2;
+int GAP_OPEN = -20, MATCH = 9, MISMATCH = -1, GAP_EXT = -7;
 
 // struct for bioparser
 struct FastaSequence
@@ -317,7 +317,7 @@ bool PairContainsString(pair<string, string> p, string str)
     return false;
 }
 
-string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments)
+string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments, vector<int> &final_order)
 {
     unordered_map<pair<string, string>, double> alignments = initial_alignments;
     set<string> set_svih_cvorova;
@@ -358,17 +358,21 @@ string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments
         string ime_novog_cvora = "";
         ime_novog_cvora += max_pair.first + "_" + max_pair.second;
         set<int> clanovi_novog_cvora;
+        final_order.clear();
         string str_novi_cvor = "(";
         // provjera jel prvi clan atom ili cvor
         if (max_pair.first.find('_') == string::npos)
         {
             clanovi_novog_cvora.insert(stoi(max_pair.first));
             str_novi_cvor += max_pair.first;
+            final_order.push_back(stoi(max_pair.first));
         }
         else
         {
             clanovi_novog_cvora.insert(atomi[max_pair.first].begin(), atomi[max_pair.first].end());
             str_novi_cvor += ime_do_stringa[max_pair.first];
+            for (int i : atomi[max_pair.first])
+                final_order.push_back(i);
         }
         str_novi_cvor += ",";
         // provjera jel drugi clan atom ili cvor
@@ -376,11 +380,14 @@ string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments
         {
             clanovi_novog_cvora.insert(stoi(max_pair.second));
             str_novi_cvor += max_pair.second;
+            final_order.push_back(stoi(max_pair.second));
         }
         else
         {
             clanovi_novog_cvora.insert(atomi[max_pair.second].begin(), atomi[max_pair.second].end());
             str_novi_cvor += ime_do_stringa[max_pair.second];
+            for (int i : atomi[max_pair.second])
+                final_order.push_back(i);
         }
         str_novi_cvor += ")\n";
         // dodavanje clanova u mapu
@@ -596,8 +603,15 @@ int main(int argc, char *argv[])
         }
     }
 
+    vector<int> final_order;
     cout << "Building filogenic tree..." << endl;
-    string filogen_stablo = BuildTree(alignments);
+    string filogen_stablo = BuildTree(alignments, final_order);
+
+    for (int i = 0; i < final_order.size(); i++)
+    {
+        cout << final_order[i] << " ";
+    }
+    cout << endl;
 
     // cout << "Tree created." << endl;
     ofstream filogen("filogen_stablo.txt");
@@ -613,18 +627,31 @@ int main(int argc, char *argv[])
     int br_umetanja = 0;
 
     ofstream complete_msa("izgraden_msa.txt");
-    for (int i = 0; i < filogen_stablo_map[zadnji_kljuc][0].size(); i++)
+    complete_msa << "\t\tIzgraden MSA:" << endl
+                 << endl;
+
+    int izadi_van = 0;
+    int okreti = 0;
+    while (!izadi_van)
     {
-        complete_msa << ">" << i + 1 << "\t\t";
-        for (int j = 0; j < filogen_stablo_map[zadnji_kljuc].size(); j++)
-        {
-            if (j % 10 == 0)
-                complete_msa << " ";
-            if (filogen_stablo_map[zadnji_kljuc][j][i] == '-')
-                br_umetanja++;
-            complete_msa << filogen_stablo_map[zadnji_kljuc][j][i];
-        }
         complete_msa << endl;
+        for (int i = 0; i < filogen_stablo_map[zadnji_kljuc][0].size(); i++)
+        {
+            complete_msa << sequences[final_order[i]]->name << "\t\t\t";
+            for (int j = 0; j < 60; j++)
+            {
+                if (okreti * 60 + j >= filogen_stablo_map[zadnji_kljuc].size())
+                {
+                    izadi_van = 1;
+                    break;
+                }
+                if (filogen_stablo_map[zadnji_kljuc][okreti * 60 + j][i] == '-')
+                    br_umetanja++;
+                complete_msa << filogen_stablo_map[zadnji_kljuc][okreti * 60 + j][i];
+            }
+            complete_msa << endl;
+        }
+        okreti++;
     }
     complete_msa.close();
 
