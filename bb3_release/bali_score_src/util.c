@@ -214,7 +214,12 @@ char * lowstr(char *str)
 void getstr(char *instr,char *outstr)
 {	
 	fprintf(stdout,"%s: ",instr);
-	gets(outstr);
+	char *result = fgets(outstr, sizeof(outstr), stdin);
+        if (!result) {
+                fprintf(stderr, "fgets failed: %s\n", strerror(errno));
+                exit(1);
+        }
+        outstr[strcspn(outstr, "\n")] = '\0';  // Remove newline
 }
 
 double getreal(char *instr,double minx,double maxx,double def)
