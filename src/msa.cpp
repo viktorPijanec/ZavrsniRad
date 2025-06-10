@@ -5,6 +5,7 @@
 #include <getopt.h>
 #include "bioparser/fasta_parser.hpp"
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -35,17 +36,17 @@ namespace std
 }
 
 // constants
-int GAP_OPEN = -20, MATCH = 9, MISMATCH = -1, GAP_EXT = -7;
+int GAP_OPEN = -15, MATCH = 8, MISMATCH = -1, GAP_EXT = -1;
 
 void print_help()
 {
     cerr << "Usage: ./msa [options] <file>\n"
          << "Options:\n"
          << "  -h, --help       Show this help message and exit\n"
-         << "  -m, --match      Value for match score (default: 5)\n"
+         << "  -m, --match      Value for match score (default: 8)\n"
          << "  -n, --mismatch   Value for mismatch penalty (default: -1)\n"
-         << "  -g, --gap        Value for gap open penalty (default: -5)\n"
-         << "  -e, --ext        Value for gap extend penalty (default: -2)\n"
+         << "  -g, --gap        Value for gap open penalty (default: -15)\n"
+         << "  -e, --ext        Value for gap extend penalty (default: -1)\n"
          << "\n";
 }
 // struct for bioparser
@@ -640,7 +641,7 @@ int main(int argc, char *argv[])
     std::ios_base::sync_with_stdio(false);
 
     // creating parser
-    auto parser = bioparser::Parser<FastaSequence>::Create<bioparser::FastaParser>(argv[1]);
+    auto parser = bioparser::Parser<FastaSequence>::Create<bioparser::FastaParser>(argv[argc - 1]);
 
     // parse file
     auto sequences = parser->Parse(-1);
@@ -689,30 +690,45 @@ int main(int argc, char *argv[])
     int br_umetanja = 0;
 
     ofstream complete_msa("izgraden_msa.txt");
-    complete_msa << "\t\tIzgraden MSA:" << endl
+
+    complete_msa << "PileUp" << endl
+                 << endl
+                 << "   MSF:" << std::setw(5) << std::right << filogen_stablo_map[zadnji_kljuc].size()
+                 << "  Type: P    Check: " << std::setw(5) << std::right << 0 << "   .." << endl
+                 << endl;
+
+    for (int i = 0; i < sequences.size(); i++)
+    {
+        complete_msa << " " << "Name: " << sequences[i]->name << " oo  Len: " << filogen_stablo_map[zadnji_kljuc].size() << "  Check: " << std::setw(5) << std::right << 0 << "  Weight:  10.0" << endl;
+    }
+    complete_msa << endl
+                 << "//" << endl
                  << endl;
 
     int izadi_van = 0;
     int okreti = 0;
     while (!izadi_van)
     {
-        complete_msa << endl;
         for (int i = 0; i < filogen_stablo_map[zadnji_kljuc][0].size(); i++)
         {
-            complete_msa << sequences[final_order[i]]->name << "\t\t\t";
-            for (int j = 0; j < 60; j++)
+            complete_msa << std::setw(12) << std::left << sequences[final_order[i]]->name;
+            for (int j = 0; j < 50; j++)
             {
-                if (okreti * 60 + j >= filogen_stablo_map[zadnji_kljuc].size())
+                if (j % 10 == 0 && j != 0)
+                    complete_msa << " ";
+                if (okreti * 50 + j >= filogen_stablo_map[zadnji_kljuc].size())
                 {
                     izadi_van = 1;
                     break;
                 }
-                if (filogen_stablo_map[zadnji_kljuc][okreti * 60 + j][i] == '-')
+                if (filogen_stablo_map[zadnji_kljuc][okreti * 50 + j][i] == '-')
                     br_umetanja++;
-                complete_msa << filogen_stablo_map[zadnji_kljuc][okreti * 60 + j][i];
+                complete_msa << filogen_stablo_map[zadnji_kljuc][okreti * 50 + j][i];
             }
             complete_msa << endl;
         }
+        complete_msa << endl
+                     << endl;
         okreti++;
     }
     complete_msa.close();

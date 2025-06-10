@@ -1,0 +1,525 @@
+PileUp
+
+   MSF: 1215  Type: P    Check:     0   ..
+
+ Name: ST11_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: PKN5_MYXXA oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: SMA6_CAEEL oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: KBN8_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: NPH1_ARATH oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: KI82_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: KN8R_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: MRK3_HUMAN oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: YAK1_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: AFC3_ARATH oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: DSK1_SCHPO oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: ST23_HUMAN oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: YKD5_CAEEL oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: CC2C_DROME oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: KSGT_ARATH oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: MPK5_ARATH oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: 1gng_A oo  Len: 1215  Check:     0  Weight:  10.0
+ Name: KC21_YEAST oo  Len: 1215  Check:     0  Weight:  10.0
+
+//
+
+ST11_YEAST  ------E--- ----D----- ---------- ---------H ------DFF-
+PKN5_MYXXA  ----Q-D--- --IIS----- ---------S ---N-----I -----GEN--
+KBN8_YEAST  ------R--- --KDS----- ---------P -----PWIAI -QKVLESG--
+NPH1_ARATH  --RRL-R--- --TKS----- ---------F --GN-KFQDI -TVEPQSF--
+KI82_YEAST  --RRL-R--- --TKS----- ---------F --SN-KFQDI -MVGPQSF--
+KN8R_YEAST  ---TS-R--- ----S----- ---------G --AR-CRNSI -----ASCA-
+MRK3_HUMAN  ---------- ---------- ---------M ---------- ---------T
+YAK1_YEAST  ---------- --------QV ITT---TVGG ---R----DG ----K--PKQ
+AFC3_ARATH  ---------- -------TTV VAT---PGQG ---P----DR --------PQ
+DSK1_SCHPO  ---------- -------GRY FQY---NVYG ---N----L- ---------F
+ST23_HUMAN  ---------- ---------- --Y---ENTV ---I----D- ------W--S
+YKD5_CAEEL  ----GFD--- -NINS-D--- --Y---ILYV ---N----D- -----V---L
+CC2C_DROME  -----DD--- -DRDG-H--- --Y---VFSL ---R----D- -----N---L
+KSGT_ARATH  ---------- ----M----- ---------- ---P----LK ----------
+MPK5_ARATH  ---------A E---D----- --YHYG---G YH-PV---YI G-----E---
+1gng_A      ------D--P K---D----- --YCKG---G YH-PV---KI G-----D---
+KC21_YEAST  QE----D--P R---D----- --YKRG---G YH-PV---NI G-----D---
+SMA6_CAEEL  ------DSG- ----SG---- --S------G ---Q----AA ----------
+
+
+ST11_YEAST  GE---DSDI- -V--S--LPT ----KIA-TP -K---N-W-- L------KGA
+PKN5_MYXXA  -E-----LS- -R--N----L ----HDF-KP -V---R-V-- L---------
+KBN8_YEAST  -E-----PI- -G-------L ----KHF-KP -V---K-P-- L---------
+NPH1_ARATH  -E-----KI- -R-------L ---------- ---------- L---------
+KI82_YEAST  -E-----KI- -R-------L ---------- ---------- L---------
+KN8R_YEAST  DE---QPHI- -G--N--YRL ---------- ---------- L------KT-
+MRK3_HUMAN  -T-IL----- -----DN--F -----Q-R-A EK-----I-- ----------
+YAK1_YEAST  -T-IS----- ---------Y --MA---Q-- RV-----V-- ----------
+AFC3_ARATH  -E-VS----- ---------Y --TD---T-- KV-----I-- ----------
+DSK1_SCHPO  -E-VS----- -----NK--Y --VP---P-I RP-----I-- ----------
+ST23_HUMAN  -T-NT----- -----KD--Y ----E-I-E- NK-----V-- ----------
+YKD5_CAEEL  -G-VE--QN- -R--K----Y ---------- -L-----V-- L------D--
+CC2C_DROME  -T-P------ ----R----Y ---------- -K-----I-- L------S--
+KSGT_ARATH  -V------I- -G-P-----Y -R-------- -V--L-ET-- L---------
+MPK5_ARATH  -EF-----H- HRR------Y V--------- -V-----ERK L---------
+1gng_A      -VF-----N- GR-------Y H--------- -V-----VRK L---------
+KC21_YEAST  -VF-----N- AR-------Y H--------- -V-----IRK L---------
+SMA6_CAEEL  -L------IQ -R-------T ---------- -VRQ---D-- LTIIKTI---
+
+
+ST11_YEAST  CI-GSGSFGS VYLGMNAHT- -GELMAVK-- ---QVEIK-- --NNNIG--V
+PKN5_MYXXA  ---GQGAYGK VLLVKDVNT- -SKLYAMK-- ----QLRK-- -AEILIS--Q
+KBN8_YEAST  ---GSGDTGS VHLVELVGT- -DQLFAMK-- ----AMDK-- -AVM-L----
+NPH1_ARATH  ---GQGDVGK VYLVRERDT- -NQIFALK-- ----VLNK-- -HEM-I----
+KI82_YEAST  ---GQGDVGK VFLVREKKT- -NRVYALK-- ----VLSK-- -DEM-I----
+KN8R_YEAST  -I-GKGNFAK VKLARHILT- -GREVAIK-- ----IIDK-- -TQLNP----
+MRK3_HUMAN  ---GEGTYGI VYKARSNST- -GQDVALK-- -------KIR LEGETEGVP-
+YAK1_YEAST  ---GTGSFGV VFQAKCLET- -GEQVAIK-- -------KVL Q------D--
+AFC3_ARATH  ---GNGSFGV VYQAKLCDS- -GELVAIK-- -------KVL Q------D--
+DSK1_SCHPO  ---GRGAYGF VCAAVDSET- -HEEIAIK-- -------KIG KAFDNKVDA-
+ST23_HUMAN  ---GRGKYSE VFQGVKLDS- -KVKIVIK-- ----ML-KPV K------KK-
+YKD5_CAEEL  -ILGQGTFGQ VVKCQNLLT- -KEILAVK-- -------VV- -------K--
+CC2C_DROME  -KMGEGTFGR VLECWDRDT- -KEYVAIK-- -------II- -------R--
+KSGT_ARATH  ---GSGGAGT VYRALDRRT- -TDEVALK-- -----L-L-- ----------
+MPK5_ARATH  ---GWGHFST VWLAYD--RA AKRRVALK-- ----VV-R-- ----------
+1gng_A      ---GWGHFST VWLCWD--IQ RKRFVALK-- ----VV-K-- ----------
+KC21_YEAST  ---GWGHFST VWLAWD--TQ DKRFVAMK-- ----IV-K-- ----------
+SMA6_CAEEL  ---GQGRYGE VRKALY--R- -GSYVAVKTF YTT-DE-D-- ----------
+
+
+ST11_YEAST  PTDNNK---- ---Q--ANSD ENNEQEEQQE KIEDVGA-VS H----PK--T
+PKN5_MYXXA  TATDSK---- ---R--EDED KNDGNNNDND D-GLSKR-LE R----TF--A
+KBN8_YEAST  -----N---- ---R------ --------N- -----KV-H- R----AR--A
+NPH1_ARATH  -----K---- ---R------ --------K- -----KI-K- R----VL--T
+KI82_YEAST  -----K---- ---R------ --------N- -----KI-K- R----VL--T
+KN8R_YEAST  -----T---- ---S------ --------L- -Q---KL-F- R----EV--R
+MRK3_HUMAN  -----S---- ---T------ ---------- -----AI--- R---------
+YAK1_YEAST  -----K---- ---R------ --------Y- -----KN--- R---------
+AFC3_ARATH  -----K---- ---R------ --------F- -----KN--- R---------
+DSK1_SCHPO  -----K---- ---R------ ---------- -----TL--- R---------
+ST23_HUMAN  -----K---- ---I------ ---------- -----K---- R---------
+YKD5_CAEEL  -----S---- ---R------ --------T- -----EY--- L----TQSIT
+CC2C_DROME  -----S---- ---I------ --------K- -----KY--- R----DAAMI
+KSGT_ARATH  -----SAGPA RDAR-A---- ---------- -----AR--- R--LA----R
+MPK5_ARATH  -----S---- ---AE----- ---------- -----HY--- R---------
+1gng_A      -----S---- ---AG----- ---------- -----HY--- T---------
+KC21_YEAST  -----S---- ---AE----- ---------- -----HY--- T---------
+SMA6_CAEEL  -----S---- ---W------ ---------- -----KNE-- RDV-------
+
+
+ST11_YEAST  N--Q---NI- ---------H -------RKM VDA-L----- -QHEM--N--
+PKN5_MYXXA  E--R---SI- ---------L SE--IE-HPN IVK-L----- -FYSF--H--
+KBN8_YEAST  E--R---EI- ---------L DL--LD-HPF LPA-L----- -YASF--Q--
+NPH1_ARATH  E--Q---EI- ---------L AT--SD-HPF IVT-L----- -YHSF--Q--
+KI82_YEAST  E--Q---EI- ---------L AT--SN-HPF IVT-L----- -YHSF--Q--
+KN8R_YEAST  I--M---KI- ---------L -----N-HPN IVK-L----- -FEVI--E--
+MRK3_HUMAN  E--I---SL- ----L--KNL ---------- ---------- ----------
+YAK1_YEAST  E--L---QI- ----M--RLQ ---------- ---------- ----------
+AFC3_ARATH  E--L---QI- ----M--RKL ---------- ---------- ----------
+DSK1_SCHPO  E--I---KL- ----L--RHL ---------- ---------- ----------
+ST23_HUMAN  E--I---KI- ----L--TDL ----SN-EKV PPTTLPFQKD QYYTN--Q--
+YKD5_CAEEL  E--A---KI- ----L--ELL NQKI------ ---------- ----------
+CC2C_DROME  E--I---DV- ----L--QKL V-KS------ ---------- ----------
+KSGT_ARATH  E--F---DT- ----LVD--L ------SHPN VVK-V----- -FESGVHQGV
+MPK5_ARATH  ETSI--DEI- --R-I----L -------QK- -I--R----- ---E------
+1gng_A      ETAV--DEI- --K-L----L -------KC- -V--R----- ---D------
+KC21_YEAST  EAAL--DEI- --K-L----L -------LS- -V--R----- ---S------
+SMA6_CAEEL  Y--QTN-MIN HE-NI----L -------QF- -V--A----- ----------
+
+
+ST11_YEAST  --LLKELH-- HENI------ V--TY---YG ----ASQEG- -----GNL--
+PKN5_MYXXA  --DNSKLY-- L--L------ L--QY---I- -------PG- -----GEL--
+KBN8_YEAST  --TKTHIC-- L--I------ T--DY---Y- -------PG- -----GEL--
+NPH1_ARATH  --TKDYLY-- L--C------ M--EY---C- -------MG- -----GEF--
+KI82_YEAST  --SEDYLY-- L--C------ M--EY---C- -------MG- -----GEF--
+KN8R_YEAST  --TEKTLY-- L--I------ M--EY---A- -------SG- -----GEV--
+MRK3_HUMAN  ---------- ---------- ---------- K--------- --------H-
+YAK1_YEAST  ---------- ---------- ---------- D--------- --------H-
+AFC3_ARATH  ---------- ---------- ---------- D--------- --------H-
+DSK1_SCHPO  ---------- ---------- ---------- E--------- --------H-
+ST23_HUMAN  --KEDVLK-- F--I------ R--PY---IF D------QP- -----HNGH-
+YKD5_CAEEL  ---------- ---------- ---------- D--------- --------P-
+CC2C_DROME  ---------- ---------- ---------- D--------- --------K-
+KSGT_ARATH  PY----LAME L--I-EGLTL -RH-YL---- DLSS----GD RQTPPGS-HT
+MPK5_ARATH  ------G--- D--E------ ----K----- H-------L- -----GK-K-
+1gng_A      ------S--- D--P------ ----S----- D-------P- -----KR-E-
+KC21_YEAST  ------A--- D--P------ ----N----- D-------I- -----GC-H-
+SMA6_CAEEL  ------A--- D--IW----- ----S-EE-- D-------S- -----M--T-
+
+
+ST11_YEAST  ------N--- ------I-F- --L------- ---------- --------E-
+PKN5_MYXXA  ---------- --------FY -HL------K EHGTLD---- --------ET
+KBN8_YEAST  ---------- --------FM -LL------D RQPRKV---- ------LKED
+NPH1_ARATH  ---------- --------FR -AL------Q TRKSKC---- ------IAEE
+KI82_YEAST  ---------- --------FR -AL------Q TRKTKC---- ------ICED
+KN8R_YEAST  ---------- --------FD -YL------V AHGRMK---- ------EKEA
+MRK3_HUMAN  -----PNV-- --------VQ --LFDVVIS- GN-N-L---- -------YMI
+YAK1_YEAST  -----PNV-- --------VR --LRHSFFS- --T-T----- ------DK-D
+AFC3_ARATH  -----CNI-- --------VR --LRYFFYS- --S-G----- ------EKKD
+DSK1_SCHPO  -----ENV-- --------VV --IKDIIRP- --P-K----- -------KED
+ST23_HUMAN  -----ANI-- --------IH --LFDIIKD- ---------- -------P-I
+YKD5_CAEEL  -----TNK-- H------HF- --LRM----- ---------- -------Y-D
+CC2C_DROME  -----GRT-- R------CV- --Q-M----- ---------- -------K-N
+KSGT_ARATH  PRSPL-SVLR -TADDD--FG P-L------- ------SRSF SDSMDD-SED
+MPK5_ARATH  ------HI-- --------IS --L------- ---------- --------LD
+1gng_A      ------TI-- --------VQ --L------- ---------- --------ID
+KC21_YEAST  ------KV-- --------VQ --L------- ---------- --------LD
+SMA6_CAEEL  ------KM-- --------L- --L------- ---------- -------ITD
+
+
+ST11_YEAST  ------Y--- V--P------ ------G-GS V---SS--ML ----------
+PKN5_MYXXA  ---TVSF--- Y--------- ---------- A---AE---- ----------
+KBN8_YEAST  ---AVRF--- Y--------- ---------- A---AQ---- ----------
+NPH1_ARATH  ---DAKF--- Y--------- ---------- A---SE---- ----------
+KI82_YEAST  ---DARF--- Y--------- ---------- A---SE---- ----------
+KN8R_YEAST  ---RSKF--- R--Q------ ------G-CQ A---GQ--TI ----------
+MRK3_HUMAN  ------F--E Y--------- -------L-- N--------M ----------
+YAK1_YEAST  ------E--L Y--------- -------L-- N--------L ----------
+AFC3_ARATH  ------E--V Y--------- -------L-- N--------L ----------
+DSK1_SCHPO  ------F--V D--------- -------V-- Y--------I ----------
+ST23_HUMAN  ------S--K T--------- -------P-- A--------L ----------
+YKD5_CAEEL  -----SF--V H--------- -------K-- N---HL--CL ----------
+CC2C_DROME  -----WF--D Y--------- -------R-- N---HI--CI ----------
+KSGT_ARATH  -SP---FDG- T------FGL EAFAEE---- A--PSE-D-L -ESFASSASP
+MPK5_ARATH  Y-----F--- VH--RGP--- ---------- NGA-HVC--M ----------
+1gng_A      D-----F--- RI--SGV--- ---------- NGV-HVC--M ----------
+KC21_YEAST  E-----F--- TV--TGI--- ---------- NGQ-HVA--M ----------
+SMA6_CAEEL  ------Y--- H-E------- ---------- L---GS---L S---------
+
+
+ST11_YEAST  -NNYG----- ---P------ ---------- ----F----- ---------E
+PKN5_MYXXA  ----I----- ---S--C--- ---------- ----A----- ---------L
+KBN8_YEAST  ----V----- ---V--V--- ---------- ----A----- ---------L
+NPH1_ARATH  ----V----- ---V--A--- ---------- ----A----- ---------L
+KI82_YEAST  ----V----- ---T--A--- ---------- ----A----- ---------L
+KN8R_YEAST  -KVQV----- ---S--F--- ---------- ----D----- ---------L
+MRK3_HUMAN  ----D----- ---L--K--- -KL------- ---------- ----------
+YAK1_YEAST  ----V----- ---L--E--- -YV------- ---------- ----------
+AFC3_ARATH  ----V----- ---L--D--- -YV------- ---------- ----------
+DSK1_SCHPO  ----V----- ---F--E--- -LM------- ---------- ----------
+ST23_HUMAN  ----V----- ---F--E--- -YV------- ---------- ----------
+YKD5_CAEEL  ----V----- ---F--E--- -LL--S---- ---NN----- ---------L
+CC2C_DROME  ----V----- ---F--E--- -KL--G---- ---PS----- ---------L
+KSGT_ARATH  H---VG-IGS DDSL--E-GF D-L---PPPM PRP-AEPEEE PGRVVREEDL
+MPK5_ARATH  ----V----- ---F--EV-- --LGE----- ----N----- ---------L
+1gng_A      ----V----- ---L--EV-- --LGH----- ----Q----- ---------L
+KC21_YEAST  ----V----- ---F--EV-- --LGC----- ----N----- ---------L
+SMA6_CAEEL  ----D-Y--- ---LCRE--- --E------- ----T----- ---------L
+
+
+ST11_YEAST  -------E-- ---------- ----S----- ---L------ ----I----T
+PKN5_MYXXA  -------R-- ---------- ----F----- ---L------ ----------
+KBN8_YEAST  -------E-- ---------- ----Y----- ---L------ ----------
+NPH1_ARATH  -------E-- ---------- ----Y----- ---L------ ----------
+KI82_YEAST  -------E-- ---------- ----Y----- ---L------ ----------
+KN8R_YEAST  -------L-- ---------- ----S----- ---L------ ----M-----
+MRK3_HUMAN  ------MD-- --KKKD---V ------FTP- Q--L------ ----I--KS-
+YAK1_YEAST  ------PE-- --TVYR---A SKH-YTKMN- Q-HM------ --PIIFVQL-
+AFC3_ARATH  ------PE-- --TVYR---V ARH-YSRAK- Q-TL------ --PVIYVKL-
+DSK1_SCHPO  ------D--- --TDLH---- --Q-IIRSN- Q-SL------ --NDDHCQY-
+ST23_HUMAN  ------DN-- --VDFR---I --L-YPKLT- D--L------ --E-I--RF-
+YKD5_CAEEL  ------YE-- --LLKQ---N ---KFHGLSI Q--L------ ----I--RT-
+CC2C_DROME  ------FD-- --FLKR---N ---KYSAFPL A--L------ ----V--RD-
+KSGT_ARATH  ---NRP-E-- -----R--M- ----G----- R--L------ -K--D-----
+MPK5_ARATH  -------LSL IQ---SYG-- ----H----- RG-VPVGIVK Q---I-----
+1gng_A      -------LKW II---KSN-- ----Y----- QG-LPVPCVK S---I-----
+KC21_YEAST  -------LKL II---RSN-- ----Y----- RG-LHLEQVR K---I-----
+SMA6_CAEEL  TTD----E-- -----A---- ----L----- R--L------ ----I-----
+
+
+ST11_YEAST  NFT--RQIL- -I-G---V-- ---AYLH--- --KK-N-I-- ---I--HRDI
+PKN5_MYXXA  ---------- ---------- ------H--- --TK-G-V-- ---V--YRDL
+KBN8_YEAST  ---------- ---------- ------H--- --CQ-G-I-- ---I--YRDL
+NPH1_ARATH  ---------- ---------- ------H--- --LL-G-F-- ---I--YRDL
+KI82_YEAST  ---------- ---------- ------H--- --LL-G-F-- ---I--YRDL
+KN8R_YEAST  -FT--F-IV- -S-A---V-- ---QYCH--- --QK-R-I-- ---V--HRDL
+MRK3_HUMAN  -YM-H-QIL- D--A---V-- --G-FCH-T- --N------- --RI-LHRDL
+YAK1_YEAST  -YT-Y-QIC- R--A---L-- --N-YLH-RV --V------- --GV-CHRDI
+AFC3_ARATH  -YM-Y-QLF- R--S---L-- --A-YIH-SF ---------- --GI-CHRDI
+DSK1_SCHPO  -FL-Y-QIL- R--G---L-- --K-YIH-SA ---------- --NV-LHRDL
+ST23_HUMAN  -YM-F-ELL- K--A---L-- --D-YCH-S- -------M-- --GI-MHRDV
+YKD5_CAEEL  -FT-T-QIL- D--S---L-- --C-VLK-E- ---S-K---- --LI--HCDL
+CC2C_DROME  -FG-C-QLL- E--S---V-- --A-YMH-E- ---L-Q---- --LV--HTDL
+KSGT_ARATH  -AML--QIC- --EA---L-- -A--YIH--- -G-H-G---- --LV--HRDL
+MPK5_ARATH  -AY---QLLI ---A---L-- D---YLH--- R--ECG-I-- ---I--HTDL
+1gng_A      -VR---QVLH ---G---L-- D---YLH--- T--KCK-I-- ---I--HTDI
+KC21_YEAST  -CR---QVLE ---A---L-- G---YMH--- E--KCG-I-- ---I--HTDI
+SMA6_CAEEL  -HS---CIC- ---GIEHLHA ----AVHG-- ---T-GSFRK PE-IA-HRDI
+
+
+ST11_YEAST  KGANILI--- ---------- ---------- ------DI-- K---------
+PKN5_MYXXA  KPENCLL--- ---------- ---------- ------NQ-- R---------
+KBN8_YEAST  KPENVLI--- ---------- ---------- ------QG-- N---------
+NPH1_ARATH  KPENILL--- ---------- ---------- ------HQ-- S---------
+KI82_YEAST  KPENILL--- ---------- ---------- ------HQ-- S---------
+KN8R_YEAST  KAENLLL--- ---------- ---------- ------DA-- D---------
+MRK3_HUMAN  KPQN-LL--- ---------- ---------- ------V--- ----------
+YAK1_YEAST  KPQN-LL--- ---------- ---------- ------V--- ----------
+AFC3_ARATH  KPQN-LL--- ---------- ---------- ------L--- ----------
+DSK1_SCHPO  KPSN-LL--- ---------- ---------- ------L--- ----------
+ST23_HUMAN  KPHN-VM--- ---------- ---------- ------I--- ----------
+YKD5_CAEEL  KPENILL--- ---------- ---------- ---------- ----------
+CC2C_DROME  KPENILL--- ---------- ---------- ------VS-- S---------
+KSGT_ARATH  KPSNIMV--- ---------- ---------- ------D-DD ----------
+MPK5_ARATH  KPENVLIC-- ---IDQDALQ HIEA-----P ATTSSPT--- SN-TSSS---
+1gng_A      KPENILLCVG DAYIRRLAAE ATEWQQAGAP PPSRSIV--- ST-AP-----
+KC21_YEAST  KPENVLITMS REEIKIMAQH AVVARKMNMK M-SGSAV--- ST-APDHLVK
+SMA6_CAEEL  KSKNIIV--- ---------- ---------- ------K--- R-P-------
+
+
+ST11_YEAST  -------G-- ---------C VK-------- ---------- I---------
+PKN5_MYXXA  -------G-- ---------H LV-------- ---------- L---------
+KBN8_YEAST  -------G-- ---------D IS-------- ---------- L---------
+NPH1_ARATH  -------G-- ---------H VM-------- ---------- L---------
+KI82_YEAST  -------G-- ---------H IM-------- ---------- L---------
+KN8R_YEAST  -------M-- ---------N IK-------- ---------- I---------
+MRK3_HUMAN  ---------- ---------- ---------- ---------- ----------
+YAK1_YEAST  ---------- ---------- ---------- ---------- ----------
+AFC3_ARATH  ---------- ---------- ---------- ---------- ----------
+DSK1_SCHPO  ---------- ---------- ---------- ---------- ----------
+ST23_HUMAN  ---------- ---------- ---------- ---------- ----------
+YKD5_CAEEL  ---------- ---------- ---------- ---------- ----------
+CC2C_DROME  -------E-- ---------N VK-------- ---------- L---------
+KSGT_ARATH  -------R-- ---------Q VR-------- ---------- L---------
+MPK5_ARATH  -KTRNNTG-- --YTAKAPI- IK-RG-QSVD NSAQERKTFA KNPTKNSK--
+1gng_A      --QEVLTGKL SKNKRKKMR- RK-RKQQKRL LEERLRDLQR L---------
+KC21_YEAST  MAQENMT--- -KNKKKKMK- KK-AKKQREK LEAELAGLEG LKMDANGLQE
+SMA6_CAEEL  -------N-- ---------- VCC------- ---------- I---------
+
+
+ST11_YEAST  ---------- ---------- ---------- -------T-- --D-------
+PKN5_MYXXA  ---------- ---------- ---------- -------T-- --D-------
+KBN8_YEAST  ---------- ---------- ---------- -------S-- --D-------
+NPH1_ARATH  ---------- ---------- ---------- -------S-- --D-------
+KI82_YEAST  ---------- ---------- ---------- -------S-- --D-------
+KN8R_YEAST  ---------- ---------- ---------- -------A-- --D-------
+MRK3_HUMAN  ---------- ---------- ---------- ---------- --D-------
+YAK1_YEAST  ---------- ---------- ---------- ---------- --N-------
+AFC3_ARATH  ---------- ---------- ---------- ---------- --D-------
+DSK1_SCHPO  ---------- ---------- ---------- ---------- --N-------
+ST23_HUMAN  ---------- ---------- ---------- ---------- --D-------
+YKD5_CAEEL  ---------- ---------- ---------- ---------- ----------
+CC2C_DROME  ---------- ---------- ---------- -------P-- --D-------
+KSGT_ARATH  ---------- ---------- ---------- -------M-- --D-------
+MPK5_ARATH  ---------- -PAGQVIP-- ---------- -------S-- -------SPF
+1gng_A      -------EAM EAATQAED-- ---------- -------SGL RLDGGSGSTS
+KC21_YEAST  AYNNAPELEN FNASQVEDVT MEDTVNENGN RNKVEIRSPD RFDRTTLTPF
+SMA6_CAEEL  ---------- ---------- ---------- -------A-- --D-------
+
+
+ST11_YEAST  --------FG -I----S--- ---------- -KKLS-PL-- ----NKK---
+PKN5_MYXXA  --------FG -L----S--- ------KKS- ---------- -----AN---
+KBN8_YEAST  --------FD -L----S--- CLT--SCKPQ LLIPS-ID-- ----EKK---
+NPH1_ARATH  --------FD -L----S--- IQATGSKKPT M--------- ------K---
+KI82_YEAST  --------FD -L----S--- IQAKDSKVPV V--------- ------K---
+KN8R_YEAST  --------FG -F----S--- -----NEFT- ---------- ------V---
+MRK3_HUMAN  ---------- ---------- ---------- -----T-A-- ----------
+YAK1_YEAST  ------PQ-- ---------- ---------- -----T-H-- ----------
+AFC3_ARATH  ------PD-- ---------- ---------- -----T-A-- ----------
+DSK1_SCHPO  ------SN-- ---------- ---------- -----C-D-- ----------
+ST23_HUMAN  ------HK-- ---------- ---------- -----N-K-- ----------
+YKD5_CAEEL  ---------- ---------- ---------- -----C-A-- ----PDK---
+CC2C_DROME  ------NKRS -A----A--- -----NETH- ---FRC-L-- ----PKS---
+KSGT_ARATH  --------FG -L----A--- ---------- ---------- ------K---
+MPK5_ARATH  TSTLSR--FP SLEGAVSEIS ---------- -------LRD S--Q--KHNS
+1gng_A      SSGFS----G SLFSPASCSI ---------- -------LSG SSNQ--RETG
+KC21_YEAST  SDPESK--FG DLASP-SAEY ---------- -------LSS PMSQ--LPPG
+SMA6_CAEEL  --------LG -L----A--- ---------- -------L-- ------R---
+
+
+ST11_YEAST  ---------- ---------- ---------- ---------- --QNK-----
+PKN5_MYXXA  ------DS-- ---------- ---------- ----AV---- --DEE---DP
+KBN8_YEAST  ------KK-- ---------- ---------- ----KQ-QKS -QQTP---IF
+NPH1_ARATH  ------DS-- ---------- ---------- --------TY -LDTK---IC
+KI82_YEAST  ------GS-- ---------- ---------- ----AQ-STL -VDTK---IC
+KN8R_YEAST  ------GG-- ---------- ---------- ----KL---- --DT------
+MRK3_HUMAN  ---G--KI-- ---------- ---------- ----KL---- A-DFGLARAF
+YAK1_YEAST  ---Q--L--- ---------- ---------- ----KI---- C-DFGSAK--
+AFC3_ARATH  ---V--L--- ---------- ---------- ----KL---- C-DFGSAK--
+DSK1_SCHPO  ------L--- ---------- ---------- ----KI---- T-DFGLAR--
+ST23_HUMAN  ---K--L--- ---------- ---------- ----RL---- I-DWGLAE-F
+YKD5_CAEEL  ----PEL--- ---------- ---------- ----KI---- I-DFGSS---
+CC2C_DROME  ----SAI--- ---------- ---------- ----KL---- I-DFGST---
+KSGT_ARATH  --F---L--- ---------- ---------- ----AD---- --DAAIT---
+MPK5_ARATH  HP----NSPF SSGDNSLILD GVNGSQEPVP KITVKIA--- --DLGNA--C
+1gng_A      GL----LSPS TPFGASNLLV NPLEPQ-NAD KIKIKIA--- --DLGNA--C
+KC21_YEAST  GI----L-PA PPVG------ -PNIGD-PYC DIDVKIA--- --DLGNA--C
+SMA6_CAEEL  ------Y--- ---------- ---------- ----QN---- --DKI-L---
+
+
+ST11_YEAST  ---------- ----RA--SL QGSVFWMSPE VV---KQ--- -T-ATT-A--
+PKN5_MYXXA  --------EN -V--NALYSI IGTPEYCAPE IL---LG--- -K-AYSQN--
+KBN8_YEAST  ------MAEP -M--RASNSF VGTEEYIAPE II---SG--- -A-GHTSA--
+NPH1_ARATH  ------SDGF ----RT-NSF VGTEEYLAPE VI---RG--- -N-GHTAA--
+KI82_YEAST  ------SDGF ----RT-NSF VGTEEYIAPE VI---RG--- -N-GHTAA--
+KN8R_YEAST  ---------- ---------F CGSPPYAAPE LF---QG--- -K-KYDGP--
+MRK3_HUMAN  --NVPM--RA ----YT--HE VVTLWYRAPE IL---LG--T K-F-YSTG--
+YAK1_YEAST  -MLVPG--EP ----NI--SY ICSRYYRAPE LI---FG--A T-E-YTNA--
+AFC3_ARATH  -QLVRG--EP ----NV--SX ICSRYYRAPE LI---FG--A T-D-YTSS--
+DSK1_SCHPO  -TTSET--EY ----MT--EY VVTRWYRAPE LL---LN--S S-E-YTSA--
+ST23_HUMAN  -YHVNM--EY ----NV--R- VASRFFKGPE LL---VD--Y R-M-YDYS--
+YKD5_CAEEL  ---CE---EA ----RTVYTY IQSRFYRAPE II---LG--- -I-PYSTS--
+CC2C_DROME  ---VC---DN ----RIHHSI VQTRHYRSPE VI---LG--- -L-GWSYQ--
+KSGT_ARATH  --------E- ----AG--KL VGTYRYMAPE QI---LG-E- ---PLDGR--
+MPK5_ARATH  W--T----R- --KHFT--ND VQTRQYRSPE VI---LGC-- ---RWGAS--
+1gng_A      W--V----H- --KHFT--ED IQTRQYRAVE VL---IGA-- ---EYGPP--
+KC21_YEAST  W--V----N- --HHYT--DD IQTRQYRALE VL---IGS-- ---GYGPP--
+SMA6_CAEEL  ---P----E- K---FN--VQ VGTKRYMAPE LISNKLN--- ---PKDFSQF
+
+
+ST11_YEAST  --KADIWS-- T-----G--- ----C--VV- --IEM----- ---------F
+PKN5_MYXXA  ---CDWYS-- L-----G--- -------CL- -LYDM----- -L------VG
+KBN8_YEAST  ---VDWWA-- L-----G--- -------IL- -MYEM----- -L------YG
+NPH1_ARATH  ---VDWWT-- L-----G--- -------IL- -IYEM----- -L------FG
+KI82_YEAST  ---VDWWT-- L-----G--- -------IL- -IYEM----- -L------FG
+KN8R_YEAST  --EVDVWS-- L-----G--- ----V--IL- --YTL----- -V------SG
+MRK3_HUMAN  ---VDIWS-- L-----G--- ----C--IF- --SEM----- IM-------R
+YAK1_YEAST  ---IDMWS-- G-----G--- ----C--VM- --AEL----- LL-------G
+AFC3_ARATH  ---IDVWS-- A-----G--- ----C--VL- --AEL----- LL-------G
+DSK1_SCHPO  ---IDVWS-- V-----G--- ----C--IF- --AEI----- MT-------R
+ST23_HUMAN  ---LDLWS-- F-----G--- ----T--ML- --ASM----- IF------KR
+YKD5_CAEEL  ---IDMWS-- L-----G--- ----C--IV- --AEL----- FL-------G
+CC2C_DROME  ---CDLWS-- I-----G--- ----C--IL- --FEL----- CT-------G
+KSGT_ARATH  ---ADLYS-- L-----G--- ----V--IL- --YEL----- -L-----S-G
+MPK5_ARATH  ---ADCWS-- F-----A--- ----C--II- --FEL----- -L----T--G
+1gng_A      ---ADIWS-- T-----A--- ----C--MA- --FEL----- -A----T--G
+KC21_YEAST  ---ADIWS-- T-----A--- ----C--MA- --FEL----- -A----T--G
+SMA6_CAEEL  KM-ADIYSMA LVMWEVAIRV EVNTCEEVLT V-DETSPDHS -ASSGI---G
+
+
+ST11_YEAST  --T------- G--------- ---------- ---------- ----K---HP
+PKN5_MYXXA  KPP-Y--T-- G------S-- N----HKV-- IINKI----- -QQNK-QGPK
+KBN8_YEAST  YTP-F--R-- G------K-- T--R-QKT-- FTN-V----- -LQ-K-DL-K
+NPH1_ARATH  CTP-F--K-- G------D-- N--S-NET-- FSN-I----- -LT-K-DV-K
+KI82_YEAST  FTP-F--K-- G------D-- N--T-NET-- FTN-I----- -LK-N-EV-S
+KN8R_YEAST  SLP-F--D-- G------Q-- N--L-KEL-- RER-V----- -LRGK-Y--R
+MRK3_HUMAN  -RSLF--P-- G-----DS-- EID--QLY-R IFR-T----- -L--S----T
+YAK1_YEAST  -QPLF--P-- G-----ES-- GID--QLV-E IIK-I----- -L--G----T
+AFC3_ARATH  -QPIF--P-- G-----DS-- GVD--QLV-E IIK-V----- -L--G----T
+DSK1_SCHPO  -EPLF--P-- G-----KD-- YVH--QLK-L ITE-L----- -I--G----S
+ST23_HUMAN  -EPFF--H-- G-----TS-- NTD--QLV-K IVK-V----- -L--G----T
+YKD5_CAEEL  -IPIF--P-- G-----AS-- EYN--QLT-R IID-T----- -L--G----Y
+CC2C_DROME  -EALF--Q-- T-----HD-- NLE--HLA-M MER-A----- -L--G----P
+KSGT_ARATH  -RPPF--D-- A------K-- T---PHEL-- WRQ-V----- -L--E----T
+MPK5_ARATH  -DYLF-DPRN G--NSY-SKE D-D--HIAQ- IIE-L----- -L--V----N
+1gng_A      -DYLF-EPHS G--EDY-SRD E-D--HIAH- IVE-L----- -L--G----D
+KC21_YEAST  -DYLF-EPHQ G--DNY-SRD E-D--HLAH- ISE-L----- -L--G----A
+SMA6_CAEEL  -ESVSS-S-- GNI----S-- R-M--HLQ-- KTN-VEGHST SL--KA---K
+
+
+ST11_YEAST  F--P------ D-F--S---Q MQ--AI-FKI G-TN-----T ----------
+PKN5_MYXXA  I--P------ F--YLS-EGM KD--IL-NAL LKKET---AK ----------
+KBN8_YEAST  F--P----AS -I-PAS-LQV KQ--LI-FRL LQRDP---KK ----------
+NPH1_ARATH  F--P----HD -K-EVS-KNC KD--LI-KKL LNKNE---AK ----------
+KI82_YEAST  F--P----NN -N-EIS-RTC KD--LI-KKL LTKNE---SK ----------
+KN8R_YEAST  I--P------ --FYMS-TDC EN--LL-KRF LVLNP---IK ----------
+MRK3_HUMAN  ---P------ ---------- ---------- ----D---E- -------TNW
+YAK1_YEAST  ---P------ ---------- ---------- ----T---R- ----------
+AFC3_ARATH  ---P------ ---------- ---------- ----T---R- ----------
+DSK1_SCHPO  ---P------ ---------- ---------- ----D---G- -------ASL
+ST23_HUMAN  ---S------ ---------- ---------- ----D---F- ----------
+YKD5_CAEEL  P--P-SWM-I DMGKNSGKFM KK--LA-PEE SSSST---QK HRMKTIE---
+CC2C_DROME  L--P-EHM-- ---------- ---------- ----T---RK ASRGAEK---
+KSGT_ARATH  E--P------ -----P---- PV--LA---- L--NL----H ----------
+MPK5_ARATH  Y--PK----- -----Q---- ----MA---- L--SG----K ----------
+1gng_A      I--PP----- -----A---- ----FA---- L--SG----R ----------
+KC21_YEAST  I--PP----- -----S---- ----IY---- K--KG----K ----------
+SMA6_CAEEL  QHVP------ -----P---- --FDGIV--- H--NDPNF-D ----------
+
+
+ST11_YEAST  ---------- ----T----- -PE---I--- ----P---SW ATS-----EG
+PKN5_MYXXA  ---------- ----R----- -WN---V--- ----D---KY WAK-----TG
+KBN8_YEAST  ---------- ----R----- -L-------- ---------- ---------G
+NPH1_ARATH  ---------- ----R----- -L-------- ---------- ---------G
+KI82_YEAST  ---------- ----R----- -L-------- ---------- ---------G
+KN8R_YEAST  ---------- ----R----- ---------- ---------- ---------G
+MRK3_HUMAN  P--------- -G-VT---QL P--DFK-T-- --KFP----- ----R-----
+YAK1_YEAST  E--------- -E-IR---CM N--PNY-TEF --KFP----- ----Q-----
+AFC3_ARATH  E--------- -Q-IR---EM N--PNY-TEF --KFP----- ----Q-----
+DSK1_SCHPO  E--------- -F-LR---SA N--ARK-YVK --ELP----- ----K-----
+ST23_HUMAN  E--------- ----K---YL L----K-YEI --TLP----- ----R---EF
+YKD5_CAEEL  E--------- -F-CREYN-I VEKPSKQYFK WRKLP---DI IRNYRY-P--
+CC2C_DROME  Y--------- -F-RRGCR-L N--------- WPEGA---NS RESIRA-V--
+KSGT_ARATH  G--------- ----D----- ---------- ----P----- ---------Q
+MPK5_ARATH  H--------- --S-R----- ---------- --DLF--N-- ----R-R--G
+1gng_A      Y--------- --S-R----- ---------- --EFF--N-- ----R-R--G
+KC21_YEAST  H--------- --W-R----- ---------- --EFF--H-- ----K-N--G
+SMA6_CAEEL  EMNDVICVRR I---R----- ---------- --PPPDL--- ----A----W
+
+
+ST11_YEAST  --------KN FLR-K----- ----AF---- ---------- ELDYQYR-P-
+PKN5_MYXXA  --------AN -N--K----- -----P---- ---------- --TKSKKKK-
+KBN8_YEAST  ---------- ---------- ---------- ---------- -------CF-
+NPH1_ARATH  ---------- ---------- ---------- ---------- -------SK-
+KI82_YEAST  ---------- ---------- ---------- ---------- -------CK-
+KN8R_YEAST  ---------- T-L------- ----E----- ---------- QI-----MK-
+MRK3_HUMAN  ---------- ---WEGTNM- -----P---- -----QPITE ----------
+YAK1_YEAST  ---------- ---IKAHPWH K--I-F---- -----HKRMP ----------
+AFC3_ARATH  ---------- ---IKAHPWT K--V-F---- -----RPRTP ----------
+DSK1_SCHPO  ---------- ---FPRQNFS A--R-F---- ------PSMN ----------
+ST23_HUMAN  --------YD MDQYIRKPWH R----F---- -----INDGN --KH-LSGN-
+YKD5_CAEEL  ---------- ----KSIQNS QELI-D---- -----QEMQN ----------
+CC2C_DROME  ---------- ----KRLDRL KDMV-S---- -----KHVDN ----T-----
+KSGT_ARATH  ---------- ----L----- -----A---- ---------- ----------
+MPK5_ARATH  ELRNIHKL-- ----K----- -----FWPLK DVLEQ----- --------KY
+1gng_A      ELRHIHNL-- ----K----- -----HWGLY EVLME----- --------KY
+KC21_YEAST  HLLHIHQL-- ----K----- -----PWSLY EVLRQ----- --------KY
+SMA6_CAEEL  ---------- ----K----- -----N---- ---------- --------V-
+
+
+ST11_YEAST  ------S--A ---------- -----L---- ------E--- -L-----L--
+PKN5_MYXXA  -----SG--A -----ART-- --S--L---- ------F--- -------T--
+KBN8_YEAST  -----EG--A -----NEV-- --K------- ---------- -Q--------
+NPH1_ARATH  -----SG--A -----ADI-- --K------- ---------- -R--------
+KI82_YEAST  -----MG--A -----ADV-- --K------- ---------- -K--------
+KN8R_YEAST  -----DR--W -----INA-- --G------- ---------- ----------
+MRK3_HUMAN  ----HE---A -----HEL-I M-S-ML--CY D-----P-NL -R----ISA-
+YAK1_YEAST  ----PE---A -----VDL-V S-R-LL--QY S-----P-NL -R----CTA-
+AFC3_ARATH  ----PE---A -----IAL-C S-R-LL--EY T-----P-TA -R----LTP-
+DSK1_SCHPO  ----ST---A -----IDL-L E-K-ML--VF D-----P-VK -R----ITV-
+ST23_HUMAN  ----DE---I -----IDL-I D-N-LL--RY D-----H-QE -R----LTA-
+YKD5_CAEEL  ----RECL-I -----HFL-- -GG-VL--NL N-----P-LE -R----WTP-
+CC2C_DROME  ----RSRF-A -----DLL-- -YG-LL--AY D-----P-SE -R----LTA-
+KSGT_ARATH  -----RV--A -----HRLI- --R-KE---P D-----D--- -R--FQ-TA-
+MPK5_ARATH  HFSA-E--LA -QQISDFL-- --SPML-C-F D-----P--A KR-T---NA-
+1gng_A      EWPL-E--QA -TQFSAFL-- --LPMM-E-Y I-----P--E KR-A---SA-
+KC21_YEAST  EWSH-E--DA -QQFESFL-- --RPML-D-F D-----Q--E KR-S---TA-
+SMA6_CAEEL  -----P---A L----NEL-- --S-KLM--E DSWHSIPH-F -RH----SAL
+
+
+ST11_YEAST  --------Q- -----H--P- ---W------ L--------D AHI-------
+PKN5_MYXXA  --------E- -----HFIFR KIDWK----L LE--S----G QLQ-------
+KBN8_YEAST  ---------- -----HSFFK GINWA----L IR--C----- ----------
+NPH1_ARATH  ---------- -----HPFFK KVQWS----F LR--N----- ----------
+KI82_YEAST  ---------- -----HPFFK KVQWS----L LR--N----- ----------
+KN8R_YEAST  ---------- -----HEEDE LKPFV----E PE-------- ----------
+MRK3_HUMAN  -----KD-A- L---QHAYFR N-V------- QHVDHV--A- -LP-------
+YAK1_YEAST  -----LE-A- C---AHPFFD ---------D LRDPNV--S- -LP-------
+AFC3_ARATH  -----LE-A- C---AHSFFD ---------E LRDPNV--K- -LP-------
+DSK1_SCHPO  -----EE-A- L---CYPYLS ---------A LHDLND--E- -PV-------
+ST23_HUMAN  -----KE-A- M---GHPWF- ---------- --APIR--E- -QI-------
+YKD5_CAEEL  -----QQ-A- M---LHP-F- -I-TK----- QEFTGE--W- -FP-------
+CC2C_DROME  -----NE-A- L---DHP-F- ---------- ---------- ----------
+KSGT_ARATH  ------E-E- -----VYEA- ---------- LS--E----- ----------
+MPK5_ARATH  ----G-Y-M- S--N-SP-W- ---------- LR-------- --EVADPTFK
+1gng_A      ----A-D-C- L--Q-HP-W- ---------- LN-------- --P-------
+KC21_YEAST  ----K-I-A- L--K-HP-F- ---------- LL-------- --PFGGRAPK
+SMA6_CAEEL  KLKK--EMAE LIK--NPDR- -----QNQS- QR----KV-- --E-------
+
+
+ST11_YEAST  ---------- --I--
+PKN5_MYXXA  ---------- --KT-
+KBN8_YEAST  ---------- ---T-
+NPH1_ARATH  ---------- ---Q-
+KI82_YEAST  ---------- ---Q-
+KN8R_YEAST  ---------- -----
+MRK3_HUMAN  -------VDP ---N-
+YAK1_YEAST  -------NGR AL---
+AFC3_ARATH  -------NGR DT---
+DSK1_SCHPO  -------CSN HF---
+ST23_HUMAN  -------EK- -----
+YKD5_CAEEL  -------PGS --S-L
+CC2C_DROME  -------FKS --S-S
+KSGT_ARATH  ---------- -----
+MPK5_ARATH  IETTGAT--- -----
+1gng_A      ---------- -----
+KC21_YEAST  SDCPPEL--- -----
+SMA6_CAEEL  ---------- -----
+
+
