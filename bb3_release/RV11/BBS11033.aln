@@ -1,0 +1,42 @@
+CLUSTAL 2.1 multiple sequence alignment
+//
+
+
+1erv_           LVVVDFSATWCGPCKMIKPFFHSLSEKYSN-----VIFLE-VDVDD--CQ-DVASECEVK
+1mek_           YLLVEFYAPWCGHCKALAPEYAKAAGKLKAEG-SEIRLAK-VDATE--ES-DLAQQYGVR
+1a8l_           VRILVFVTPTCPYCPLAVRMAHKFAIENTKAG-KGKILGDMVEAIE--YP-EWADQYNVM
+1thx_           PVLVYFWASWCGPCQLMSPLINLAANTYSDR----LKVVK-LEIDP--NP-TTVKKYKVE
+1jfu_A          TLLVNLWATWCVPCRKEMPALDELQGKLSGPN-FEVVAIN-IDTRDPEKPKTFLKEANLT
+1kng_A          VSLVNVWASWCVPCHDEAPLLTELGKDKRFQ----LVGINYKDAAD--NARRFLGRYGNP
+1ewx_A          LVFFYFSASWCPPCRGFTPQLIEFYDKFHESKNFEVVFCTWDEEED--GFAGYFAKMPWL
+1se1_A          PVMLDLYADWCVASKEFEKYTFSDPQVQKALADTVLLQAN-VTAND-AQDVALLKHLNVL
+2trc_P          TIVVNIYEDGVRGCDALNSSLECLAAEYPX-----VKFCK-IRASN----TGAGDRFSSD
+1grx_           MQTVIFGRSGCPYSVRAKDLAEKLSNERDDFQ---YQYVD-IRAEG-ITKEDLQQKAGKP
+1j0f_A          -SGLRVYSTSVTGSREIKSQQSEVTRILDGKR-IQYQLVD-ISQDN-ALRDEMRTLAGNP
+                   . .       .                                              
+
+1erv_           -----------------------SMPTFQFFKK-GQKVG--EFS-GANKEK-----LEAT
+1mek_           -----------------------GYPTIKFFRN-GDTASPKEYTAGREADD-----IVNW
+1a8l_           -----------------------AVPKIVIQVN-GEDRV--EFEGAYPEKM-----FLEK
+1thx_           -----------------------GVPALRLVK--GEQILD-STEGVISKDK-----LLSF
+1jfu_A          RLGYFNDQKAKVFQDLKAIGRALGMPTSVLVDPQGCEIATIAGPAEWASED-----ALKL
+1kng_A          FGRVGVDANGRASIEWG----VYGVPETFVVGREGTIVYKLVGPITPDNLRS---VLLPQ
+1ewx_A          AVPFAQS------------EAVQKLSKHFNVESIPTLIGVDADSGDVVTTR----ARATL
+1se1_A          -----------------------GLPTILFFDGQGQEHPQARVTGFMDAET-----FSAH
+2trc_P          -----------------------VLPTLLVYKG-GELISNFISVAEQFAEDFFAADVESF
+1grx_           ---------------------VETVPQIFVDQ---QHIGGYTDFAAWVKEN---------
+1j0f_A          ----------------------KATPPQIVNGN--HYCGDYELFVEAVEQ----------
+                                         .                                  
+
+1erv_           INE
+1mek_           LKK
+1a8l_           LLS
+1thx_           LDT
+1jfu_A          IRA
+1kng_A          MEK
+1ewx_A          VKD
+1se1_A          LR-
+2trc_P          LNE
+1grx_           LDA
+1j0f_A          ---
+                   

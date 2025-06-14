@@ -1,0 +1,143 @@
+CLUSTAL 2.1 multiple sequence alignment
+//
+
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      MNMDSGITSSHGSMDKTQKQSSEWAANQKHNQRVENTRVLMGPAVPAMPPVPSNFPPVPT
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      GTIMSPQLSPFPDHRLRHHPLAHMMPADKNFLAYNMESMNMDSGITSSHGSMDKTQKQSS
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      EWAANQKHNQRVENTRVLMGPAVPAMPPVPSNFPPVPTGTIMSPQLSPFPDHRLRHHPLA
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      HMMPADKNFLAYNMESFKSRVTKACDYCRKRKIRCTEIEPISGKCRNCIKYNKDCTFHFH
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      EELKRRREEALNNKGNGKSVKKPRLDKENKFKDENFDIAVRSRNTSSTDSSPKLHTNLSQ
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      EYIGVSAGKSASDKEDTWPDFVPIDRTVLEKIELNHTKVAGKVFVLEEICKNMKGTIEKL
+yhx8_yeast      --------------------------------------------------------TSWV
+s50366          --------------------------------------------------------KKEF
+                                                                            
+
+put3_yeast      -SSGQEEVIQFQLPS------YNYTKLLIDCFINYNDGCFYFFNEGLVKCGINKLYLENK
+cat8_yeast      --EKPANDQDDELLS------LTEIKELLHLFFKFWSNQVPILNNDHFLIYFNNFVEVVK
+YB00_YEAST      AEKSKIDVIDKEYMKRPKRKQYSKALLTKQKMFHFRQNVLSHLTDEEFLSPINEMFTTTF
+yhx8_yeast      REDGSFKSIDRSLLDR-----------FIAAYFKHNHRLFPMIDKIAFLNDAATITDFER
+s50366          LMYDPIFELNEKLSRS-----------FLDTFFTRLQFKYPILDEQEIYTFYDHYLHNKI
+                         : .                    :         : .  .            
+
+put3_yeast      WLYYDNTKKALDN-----------------------------------------------
+cat8_yeast      HLSTENLETNNTT-----------------------------------------------
+YB00_YEAST      KYSILQTKLVLDFSFRSASSPSSDNILYPLPRLAIAKRLLKNIKCPSLASLLHIVDVDQC
+yhx8_yeast      LYDNKN------------------------------------------------------
+s50366          LIPPSSPATSSAAP----------------------------------------------
+                     .                                                      
+
+put3_yeast      -----------ENDPILQAVWFCKILLILAVGEMYLGSINNEMLKNYSNQPKLPGSKFFQ
+cat8_yeast      -----------KSTVTTNHEIFALKLLMMLQMGLLVKIKMEKIKYTVPKNPKAKYARLMA
+YB00_YEAST      LQFADVHFDPAKGRLTSSQAFLLNICLCLGATVTNFEEKQELVDEDNHETYYFEKFELWR
+yhx8_yeast      ----------------YPDSFVFKVYMIMAIGCTTLQRAGMVSQDEECLSEHLAFLAMKK
+s50366          --------------PSNSHSYSEIEFHFLSGRMWLVFSISAYLLMTTGKYKGFPPHRYFS
+                                            :      .                        
+
+put3_yeast      MGSKIFNCLFSSERLENVTKK--GGIEVLLLYAFFLQVADYTLASYFYFGQALRTCLILG
+cat8_yeast      YYHQLSLIIPKNPYFLNMSTTSLPSLQLLSLASFYYLNVGDISAIYGVRGRIVSMAQQLR
+YB00_YEAST      LRSFTFLNSVYYYHKLSVARADMTALKALLLLAKFAQQKISASSAVKVLSVAIKVALDLR
+yhx8_yeast      FRSVIILQDIET-------------VRCLLLLGIYSFFEPKGSSSWTISGIIMRLTIGLG
+s50366          TAIRHITKCGLHLN----------YVQQIELLTLLVLYIIRTDRDSLILYDIIKDVMGIS
+                                         :. : *                     :     : 
+
+put3_yeast      LHVDS-------QSDTLSRYEIEHHRRLWWTVYMFERMLSSKAGLPLSFTDYTISTALPA
+cat8_yeast      LHRCPSAVLSVHSNPVLQKFEQSERRLLFWAIYYVDVFASLQLGVPRLLKDFDIECALPI
+YB00_YEAST      LNLHS-------TYEDLELDEIIKRRRLWCYCFSTDKFFSVVLSRPPFLKEENTDVLTDE
+yhx8_yeast      LNRELT----AKKLKSMSALEAEARYRVFWSAYCFERLVCTSLGRISGIDDEDITVPLPR
+s50366          KKKLHLN------QWYPNDPFANKKLRLFWCVYLLERMICVAVGKPYTIKESEINLPLFN
+                 :               .      :  ::   :  : : .   .    : :         
+
+put3_yeast      ---------DIDDETIEEKNSHYVFR--KAELISNCVTIVKINAQILSKLYQRQPETNII
+cat8_yeast      SDVEYKDQLSMENEKADKKAKKIQLQGQVSSFSLQIIRFAKILGNILDSIFKRGMMDERI
+YB00_YEAST      SYVELFRDKILPNLSIKYDDSKLEGVKDIVSVVNLLANHLEYVPYIQSYFLSRLSLIESQ
+yhx8_yeast      ------------ALYVDERDD--------LEMTKLMISLRKMGGRIYKQVHSVSAGRQKL
+s50366          ---------NDSFYTKGVHAAAPSTNDHGVQFINQSLKLRRIESQFVETLQLLK--NDSR
+                                              ..        .    : . .       :  
+
+put3_yeast      ITLKVVIKQ--LLEWRNNLSDSLQVDFTQ----------------KDEDFKISRLSTNMF
+cat8_yeast      TSEVALVHENALDNWRNQLPEMYYFQITVNGTV--NLDEIRATNQRNTETKFDKKDIILF
+YB00_YEAST      IYYSCFSIRTTLDDTLDEIIENVLENQKALDRMRDDLPTILSLENYKENMRILSLDSSKL
+yhx8_yeast      TIEQKQEIISGLRKELDEIYSRESERRKLKKSQ------------MDQVERENNSTTNVI
+s50366          SVKQSIDQLPLVRKFFEDLEVWRKS---------------------YSTLDVKNFENETL
+                           : .  :::                                        :
+
+put3_yeast      TEYFQGINLAVRPLLFHFASIQLKRFKTSNTFVNLQN-----------------------
+cat8_yeast      EKKILLLFYFLAKSMIHLPVIATKPLPKNVDNATKKKQSMFNN-----------------
+YB00_YEAST      DFEVSCCTTILLHLRWYHQKITLSLFVISIIGDNLDQRESSRHDIAEIIRRSRLDFKRNC
+yhx8_yeast      SFHSSEIWLAMRYSQLQILLYRPSALMPKPPIDSLSTLGEF-------------------
+s50366          KLYYYRSVRLLIQPYLEFFAPEDRLFRECQAAAGQI------------------------
+                          :              :                                  
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      IEVLNILKDFEYYPTVQNEFLYFSLTTVFSMFLYLSEIMVNDEHAMETGYIIGLLRDTHT
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      RMLGSEERCLSVHNLKWQTSLFFYTFFLRSTMEKFNLTSKYAKFYAFDSNYYEGVLNRLV
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      KHTRESKDDMVELLKTSFINKEKMAAFGSFVTEDQEKMEVSFNIFNEITIQDLNFLQFSS
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      IPKLWENKTLEPGEEYHHSNGTNTDNNETTGADDTDDNNNNNNNNNKNGNNSSSTINNNN
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      ------------------------------------------------------------
+cat8_yeast      ------------------------------------------------------------
+YB00_YEAST      NNYSNSNNNDNDNNINDDDDDDDDDDDDDDDDDDDDDNDDDYSNNGADDDEEDDDYDRSL
+yhx8_yeast      ------------------------------------------------------------
+s50366          ------------------------------------------------------------
+                                                                            
+
+put3_yeast      -----------------------------------------------------------
+cat8_yeast      -----------------------------------------------------------
+YB00_YEAST      FPTGLASLLDASYPERTANDYRDENEQSNKLFEKIEGHLEHGVFFYDRDFFFKNVCVKM
+yhx8_yeast      -----------------------------------------------------------
+s50366          -----------------------------------------------------------
+                                                                           

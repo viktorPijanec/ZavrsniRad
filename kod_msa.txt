@@ -6,7 +6,6 @@
 #include "bioparser/fasta_parser.hpp"
 #include <fstream>
 #include <iomanip>
-#include <limits>
 
 using namespace std;
 
@@ -18,24 +17,6 @@ namespace std
         std::size_t operator()(const std::pair<string, string> &p) const noexcept
         {
             return std::hash<string>()(p.first) ^ (std::hash<string>()(p.second) << 1);
-        }
-    };
-
-    template <>
-    struct hash<std::pair<char, char>>
-    {
-        std::size_t operator()(const std::pair<char, char> &p) const noexcept
-        {
-            return std::hash<char>()(p.first) ^ (std::hash<char>()(p.second) << 1);
-        }
-    };
-
-    template <>
-    struct hash<std::pair<int, int>>
-    {
-        std::size_t operator()(const std::pair<int, int> &p) const noexcept
-        {
-            return std::hash<int>()(p.first) ^ (std::hash<int>()(p.second) << 1);
         }
     };
 
@@ -55,60 +36,19 @@ namespace std
 }
 
 // constants
-double GAP_OPEN = -10, GAP_EXT = -0.5;
-bool NJ_tree = false;
+int GAP_OPEN = -15, MATCH = 8, MISMATCH = -1, GAP_EXT = -1;
 
 void print_help()
 {
     cerr << "Usage: ./msa [options] <file>\n"
          << "Options:\n"
          << "  -h, --help       Show this help message and exit\n"
-         << "  -g, --gap        Value for gap open penalty (default: -10)\n"
-         << "  -e, --ext        Value for gap extend penalty (default: -0.5)\n"
-         << "  -n, --njt        Use neighbor-joining tree instead of UPGMA\n"
+         << "  -m, --match      Value for match score (default: 8)\n"
+         << "  -n, --mismatch   Value for mismatch penalty (default: -1)\n"
+         << "  -g, --gap        Value for gap open penalty (default: -15)\n"
+         << "  -e, --ext        Value for gap extend penalty (default: -1)\n"
          << "\n";
 }
-
-unordered_map<pair<char, char>, int> BLOSUM62;
-
-void InitBlosum62()
-{
-    vector<string> residues = {"A", "R", "N", "D", "C", "Q", "E", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V"};
-    vector<vector<int>> scores = {
-        // A  R  N  D  C  Q  E  G  H  I  L  K  M  F  P  S  T  W  Y  V
-        {4, -1, -2, -2, 0, -1, -1, 0, -2, -1, -1, -1, -1, -2, -1, 1, 0, -3, -2, 0},      // A
-        {-1, 5, 0, -2, -3, 1, 0, -2, 0, -3, -2, 2, -1, -3, -2, -1, -1, -3, -2, -3},      // R
-        {-2, 0, 6, 1, -3, 0, 0, 0, 1, -3, -3, 0, -2, -3, -2, 1, 0, -4, -2, -3},          // N
-        {-2, -2, 1, 6, -3, 0, 2, -1, -1, -3, -4, -1, -3, -3, -1, 0, -1, -4, -3, -3},     // D
-        {0, -3, -3, -3, 9, -3, -4, -3, -3, -1, -1, -3, -1, -2, -3, -1, -1, -2, -2, -1},  // C
-        {-1, 1, 0, 0, -3, 5, 2, -2, 0, -3, -2, 1, 0, -3, -1, 0, -1, -2, -1, -2},         // Q
-        {-1, 0, 0, 2, -4, 2, 5, -2, 0, -3, -3, 1, -2, -3, -1, 0, -1, -3, -2, -2},        // E
-        {0, -2, 0, -1, -3, -2, -2, 6, -2, -4, -4, -2, -3, -3, -2, 0, -2, -2, -3, -3},    // G
-        {-2, 0, 1, -1, -3, 0, 0, -2, 8, -3, -3, -1, -2, -1, -2, -1, -2, -2, 2, -3},      // H
-        {-1, -3, -3, -3, -1, -3, -3, -4, -3, 4, 2, -3, 1, 0, -3, -2, -1, -3, -1, 3},     // I
-        {-1, -2, -3, -4, -1, -2, -3, -4, -3, 2, 4, -2, 2, 0, -3, -2, -1, -2, -1, 1},     // L
-        {-1, 2, 0, -1, -3, 1, 1, -2, -1, -3, -2, 5, -1, -3, -1, 0, -1, -3, -2, -2},      // K
-        {-1, -1, -2, -3, -1, 0, -2, -3, -2, 1, 2, -1, 5, 0, -2, -1, -1, -1, -1, 1},      // M
-        {-2, -3, -3, -3, -2, -3, -3, -3, -1, 0, 0, -3, 0, 6, -4, -2, -2, 1, 3, -1},      // F
-        {-1, -2, -2, -1, -3, -1, -1, -2, -2, -3, -3, -1, -2, -4, 7, -1, -1, -4, -3, -2}, // P
-        {1, -1, 1, 0, -1, 0, 0, 0, -1, -2, -2, 0, -1, -2, -1, 4, 1, -3, -2, -2},         // S
-        {0, -1, 0, -1, -1, -1, -1, -2, -2, -1, -1, -1, -1, -2, -1, 1, 5, -2, -2, 0},     // T
-        {-3, -3, -4, -4, -2, -2, -3, -2, -2, -3, -2, -3, -1, 1, -4, -3, -2, 11, 2, -3},  // W
-        {-2, -2, -2, -3, -2, -1, -2, -3, 2, -1, -1, -2, -1, 3, -3, -2, -2, 2, 7, -1},    // Y
-        {0, -3, -3, -3, -1, -2, -2, -3, -3, 3, 1, -2, 1, -1, -2, -2, 0, -3, -1, 4}       // V
-    };
-
-    for (size_t i = 0; i < residues.size(); ++i)
-    {
-        for (size_t j = 0; j < residues.size(); ++j)
-        {
-            char a = residues[i][0], b = residues[j][0];
-            BLOSUM62[{a, b}] = scores[i][j];
-            BLOSUM62[{b, a}] = scores[i][j]; // Ensure symmetry
-        }
-    }
-}
-
 // struct for bioparser
 struct FastaSequence
 {
@@ -125,30 +65,37 @@ public:
     std::size_t length() const { return data_len; }
 };
 
-int CalcAlign(vector<char> &col1, vector<char> &col2)
+int CalcAlign(vector<char> &seq1, vector<char> &seq2)
 {
-    unordered_map<char, double> freq1, freq2;
-    for (char c : col1)
-        freq1[c] += 1.0;
-    for (char c : col2)
-        freq2[c] += 1.0;
-    for (auto &[c1, f1] : freq1)
-        f1 /= col1.size();
-    for (auto &[c2, f2] : freq2)
-        f2 /= col2.size();
-
-    double score = 0;
-    for (auto &[a, f1] : freq1)
+    int ret = 0;
+    for (int i = 0; i < seq1.size(); i++)
     {
-        for (auto &[b, f2] : freq2)
+        for (int j = i + 1; j < seq1.size(); j++)
         {
-            if (a == '-' || b == '-')
-                score += f1 * f2 * GAP_EXT;
+            if (seq1[i] == seq1[j] && seq1[i] != '-')
+                ret += MATCH;
             else
-                score += f1 * f2 * BLOSUM62[{a, b}];
+                ret += MISMATCH;
+        }
+        for (int j = 0; j < seq2.size(); j++)
+        {
+            if (seq1[i] == seq2[j] && seq1[i] != '-')
+                ret += MATCH;
+            else
+                ret += MISMATCH;
         }
     }
-    return static_cast<int>(score);
+    for (int i = 0; i < seq2.size(); i++)
+    {
+        for (int j = i + 1; j < seq2.size(); j++)
+        {
+            if (seq2[i] == seq2[j] && seq1[i] != '-')
+                ret += MATCH;
+            else
+                ret += MISMATCH;
+        }
+    }
+    return ret;
 }
 
 void AlignMultiple(vector<vector<char>> &seq1, vector<vector<char>> &seq2, vector<vector<char>> &aligned)
@@ -317,10 +264,7 @@ int Align(string &seq1, string &seq2, string *path)
                 lijevo = matrica[i][j - 1].score + GAP_EXT;
             else
                 lijevo = matrica[i][j - 1].score + GAP_OPEN;
-            char a = seq1[i - 1];
-            char b = seq2[j - 1];
-            int sub_score = (a == '-' || b == '-') ? GAP_EXT : BLOSUM62[{a, b}];
-            int dijagonala = matrica[i - 1][j - 1].score + sub_score;
+            int dijagonala = seq1[i - 1] == seq2[j - 1] ? matrica[i - 1][j - 1].score + MATCH : matrica[i - 1][j - 1].score + MISMATCH;
             if (max(max(gore, lijevo), dijagonala) == gore)
             {
                 matrica[i][j].score = gore;
@@ -386,7 +330,7 @@ bool PairContainsString(pair<string, string> p, string str)
     return false;
 }
 
-string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments)
+string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments, vector<int> &final_order)
 {
     unordered_map<pair<string, string>, double> alignments = initial_alignments;
     set<string> set_svih_cvorova;
@@ -427,17 +371,21 @@ string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments
         string ime_novog_cvora = "";
         ime_novog_cvora += max_pair.first + "_" + max_pair.second;
         set<int> clanovi_novog_cvora;
+        final_order.clear();
         string str_novi_cvor = "(";
         // provjera jel prvi clan atom ili cvor
         if (max_pair.first.find('_') == string::npos)
         {
             clanovi_novog_cvora.insert(stoi(max_pair.first));
             str_novi_cvor += max_pair.first;
+            final_order.push_back(stoi(max_pair.first));
         }
         else
         {
             clanovi_novog_cvora.insert(atomi[max_pair.first].begin(), atomi[max_pair.first].end());
             str_novi_cvor += ime_do_stringa[max_pair.first];
+            for (int i : atomi[max_pair.first])
+                final_order.push_back(i);
         }
         str_novi_cvor += ",";
         // provjera jel drugi clan atom ili cvor
@@ -445,11 +393,14 @@ string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments
         {
             clanovi_novog_cvora.insert(stoi(max_pair.second));
             str_novi_cvor += max_pair.second;
+            final_order.push_back(stoi(max_pair.second));
         }
         else
         {
             clanovi_novog_cvora.insert(atomi[max_pair.second].begin(), atomi[max_pair.second].end());
             str_novi_cvor += ime_do_stringa[max_pair.second];
+            for (int i : atomi[max_pair.second])
+                final_order.push_back(i);
         }
         str_novi_cvor += ")\n";
         // dodavanje clanova u mapu
@@ -541,92 +492,6 @@ string BuildTree(unordered_map<pair<string, string>, double> &initial_alignments
         set_svih_cvorova.insert(ime_novog_cvora);
     }
     return ret;
-}
-
-string NeighborJoiningTree(const unordered_map<pair<int, int>, double> &distances, int num_seqs)
-{
-    vector<set<int>> clusters;
-    unordered_map<int, string> names;
-    unordered_map<pair<int, int>, double> D = distances;
-
-    for (int i = 0; i < num_seqs; ++i)
-    {
-        clusters.push_back({i});
-        names[i] = to_string(i);
-    }
-
-    int next_id = num_seqs;
-
-    while (clusters.size() > 2)
-    {
-        int n = clusters.size();
-        vector<int> ids;
-        for (const auto &cl : clusters)
-            ids.push_back(*cl.begin());
-
-        // Compute Q-matrix
-        unordered_map<pair<int, int>, double> Q;
-        unordered_map<int, double> total;
-        for (int i : ids)
-            for (int j : ids)
-                if (i != j)
-                    total[i] += D[{min(i, j), max(i, j)}];
-
-        double min_Q = numeric_limits<double>::infinity();
-        int i_min = -1, j_min = -1;
-
-        for (int i = 0; i < ids.size(); ++i)
-        {
-            for (int j = i + 1; j < ids.size(); ++j)
-            {
-                int a = ids[i], b = ids[j];
-                double q = (n - 2) * D[{min(a, b), max(a, b)}] - total[a] - total[b];
-                Q[{a, b}] = q;
-                if (q < min_Q)
-                {
-                    min_Q = q;
-                    i_min = a;
-                    j_min = b;
-                }
-            }
-        }
-
-        // Merge clusters i_min and j_min
-        string new_name = "(" + names[i_min] + "," + names[j_min] + ")";
-        names[next_id] = new_name;
-
-        // Update distances
-        for (int k : ids)
-        {
-            if (k == i_min || k == j_min)
-                continue;
-            double d1 = D[{min(i_min, k), max(i_min, k)}];
-            double d2 = D[{min(j_min, k), max(j_min, k)}];
-            double d_new = 0.5 * (d1 + d2 - D[{min(i_min, j_min), max(i_min, j_min)}]);
-            D[{min(next_id, k), max(next_id, k)}] = d_new;
-        }
-
-        // Erase old distances
-        for (int k : ids)
-        {
-            D.erase({min(i_min, k), max(i_min, k)});
-            D.erase({min(j_min, k), max(j_min, k)});
-        }
-        D.erase({min(i_min, j_min), max(i_min, j_min)});
-
-        // Update cluster list
-        set<int> new_cluster = {next_id};
-        clusters.erase(remove_if(clusters.begin(), clusters.end(), [&](const set<int> &c)
-                                 { return c.count(i_min) || c.count(j_min); }),
-                       clusters.end());
-        clusters.push_back(new_cluster);
-
-        ++next_id;
-    }
-
-    // Join the last two clusters
-    int a = *clusters[0].begin(), b = *clusters[1].begin();
-    return "(" + names[a] + "," + names[b] + ")";
 }
 
 int CountInString(string str, char c)
@@ -728,30 +593,34 @@ int main(int argc, char *argv[])
     // Define long options
     const struct option long_options[] = {
         {"help", no_argument, nullptr, 'h'},
+        {"match", required_argument, nullptr, 'm'},
+        {"mismatch", required_argument, nullptr, 'n'},
         {"gap", required_argument, nullptr, 'g'},
         {"ext", required_argument, nullptr, 'e'},
-        {"njt", no_argument, nullptr, 'n'},
         {nullptr, 0, nullptr, 0}};
 
     int option_index = 0;
     int opt;
 
     // Parse command line arguments
-    while ((opt = getopt_long(argc, argv, "hg:e:n", long_options, &option_index)) != -1)
+    while ((opt = getopt_long(argc, argv, "hm:n:g:e:", long_options, &option_index)) != -1)
     {
         switch (opt)
         {
         case 'h':
             print_help();
             return 0;
+        case 'm':
+            MATCH = atoi(optarg);
+            break;
+        case 'n':
+            MISMATCH = atoi(optarg);
+            break;
         case 'g':
             GAP_OPEN = atoi(optarg);
             break;
         case 'e':
             GAP_EXT = atoi(optarg);
-            break;
-        case 'n':
-            NJ_tree = true;
             break;
         case '?':
             print_help();
@@ -771,8 +640,6 @@ int main(int argc, char *argv[])
 
     std::ios_base::sync_with_stdio(false);
 
-    InitBlosum62();
-
     // creating parser
     auto parser = bioparser::Parser<FastaSequence>::Create<bioparser::FastaParser>(argv[argc - 1]);
 
@@ -787,7 +654,7 @@ int main(int argc, char *argv[])
     }
 
     unordered_map<pair<string, string>, double> alignments;
-    double max_align = numeric_limits<double>::min();
+
     for (int i = 0; i < sequences.size(); ++i)
     {
         for (int j = i + 1; j < sequences.size(); ++j)
@@ -795,48 +662,13 @@ int main(int argc, char *argv[])
             pair<string, string> par = make_pair(to_string(i), to_string(j));
             string trenpath;
             alignments.insert({par, (double)Align(sequences[i]->data, sequences[j]->data, &trenpath)});
-            if ((double)alignments[par] > max_align)
-                max_align = (double)alignments[par];
             cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
         }
     }
 
-    cout << "Building filogenic tree..." << endl;
-    string filogen_stablo;
-    if (NJ_tree)
-    {
-        // creating distance matrix from similarity
-        unordered_map<pair<int, int>, double> distance_matrix;
-        for (auto &[pair, score] : alignments)
-        {
-            int i = stoi(pair.first), j = stoi(pair.second);
-            distance_matrix[{min(i, j), max(i, j)}] = max_align - score;
-        }
-
-        filogen_stablo = NeighborJoiningTree(distance_matrix, sequences.size());
-    }
-    else
-    {
-        filogen_stablo = BuildTree(alignments);
-    }
     vector<int> final_order;
-    int poc_ind_broja = -1, broj_pronaden = 0;
-    for (int i = 0; i < filogen_stablo.size(); i++)
-    {
-        if (filogen_stablo[i] == ',' || filogen_stablo[i] == ')' || filogen_stablo[i] == '(' || filogen_stablo[i] == '\n')
-        {
-            broj_pronaden = 0;
-            continue;
-        }
-        if (broj_pronaden == 0)
-        {
-            poc_ind_broja = i;
-            broj_pronaden = 1;
-        }
-        if (i != filogen_stablo.size() - 1 && filogen_stablo[i + 1] >= '0' && filogen_stablo[i + 1] <= '9')
-            continue;
-        final_order.push_back(stoi(filogen_stablo.substr(poc_ind_broja, i - poc_ind_broja + 1)));
-    }
+    cout << "Building filogenic tree..." << endl;
+    string filogen_stablo = BuildTree(alignments, final_order);
 
     for (int i = 0; i < final_order.size(); i++)
     {

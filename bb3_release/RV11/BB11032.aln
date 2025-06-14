@@ -1,0 +1,93 @@
+CLUSTAL 2.1 multiple sequence alignment
+//
+
+
+1krh_A          --------------------------------------------SNHQVALQFEDGVTRF
+1qfj_A          ------------------------------------------------------------
+1fdr_           ------------------------------------------------------------
+1ndh_           ------------------------------------------------------------
+2pia_           ------------------------------------------------------------
+1cqx_A          MLTQKTKDIVKATAPVLAEHGYDIIKCFYQRMFEAHPELKNVFNMAHQEQGQQQQALARA
+1fnc_           ------------------------------------------------------------
+1ep1_B          ------------------------------------------------------------
+                                                                            
+
+1krh_A          ICIAQGETLSDAAYRQQINIPMDCREGECGTCRAFCESGNYDMPEDNYIEDALTPEEAQQ
+1qfj_A          ------------------------------------------------------------
+1fdr_           ------------------------------------------------------------
+1ndh_           ------------------------------------------------------------
+2pia_           ------------------------------------------------------------
+1cqx_A          VYAYAENIEDPNSLMAVLKNIANKHASLGVKPEQYPIVGEHLLAAIKEVLGNAATDDIIS
+1fnc_           ------------------------------------------------------------
+1ep1_B          ------------------------------------------------------------
+                                                                            
+
+1krh_A          GYVLACQCRPTSDA---VFQIQASSEVCKTKIHHFEGTLARVENLSDSTITFDIQLDDGQ
+1qfj_A          --------------------------------TTLSCKVTSVEAITDTVYRVRIVPD---
+1fdr_           -------------------------------ADWVTGKVTKVQNWTDALFSLTVHAP---
+1ndh_           ---------------------PAITLENPDIKYPLRLIDKEVVNHDTRRFRFALPSPEHI
+2pia_           --------------------------TTPQEDGFLRLKIASKEKIARDIWSFELTDPQGA
+1cqx_A          AWAQAYGNLADVLMGMESELYERSAEQPGGWKGWRTFVIREKRPESDVITSFILEPADGG
+1fnc_           ----------HSKKMEEGITVNKFKPKTPYVGRCLLNTKITGDDAPGETWHMVFSHEG--
+1ep1_B          --------------------------------SQLQEMMTVVSQREVAYNIFEMVLKGTL
+                                                                   . .      
+
+1krh_A          PDIHFLAGQYVNVTLPG------TTETRSYSFSSQPGNR----------LTGFVVRNVPQ
+1qfj_A          AAFSFRAGQYLMVVMD-------ERDKRPFSMASTPDE------------KGFIELHIG-
+1fdr_           -VLPFTAGQFTKLGLE-------IRVQRAYSYVNSPDNP----------DLEFYLVTVPD
+1ndh_           LGLPVGQHIYLSARIDG------NLVIRPYTPVSSDDDKGFVDLVIKVYFKDTHPKFPAG
+2pia_           PLPPFEAGANLTVAVP-------NGSRRTYSLCNDSQER-------NRYVIAVKRDSNGR
+1cqx_A          PVVNFEPGQYTSVAIDVPALG--LQQIRQYSLSDMPNGR----------TYRISVKREGG
+1fnc_           -EIPYREGQSVGVIPDGEDKNGKPHKLRLYSIASSALGDFG-DAKSVSLCVKRLIYTNDA
+1ep1_B          VDEMDLPGQFLHLAVPNG----AMLLRRPISISSWDKRA----------KTCTILYRIGD
+                                           *  :  .                          
+
+1krh_A          GKMSEYLSVQAKAG-------DKMSFTGPFGS-FYLR-DVKRP--------VLMLAGGTG
+1qfj_A          --YAKAVMDRILKD-------HQIVVDIPHGE-AWLRDDEERP--------MILIAGGTG
+1fdr_           GKLSPRLAALKPGD-------EVQVVSEAAGF-FVLDEVPHCET-------LWMLATGTA
+1ndh_           GKMSQYLESMKIGDTIEFRGPNGLLVYQGKGK-FAIRPDKKSSPVIKTVKSVGMIAGGTG
+2pia_           GGSISFIDDTSEGD--------AVEVSLPRNE-FPLDKRAKSF---------ILVAGGIG
+1cqx_A          GPQPPGYVSNLLHDHVNVG--DQVKLAAPYGS-FHIDVDAKTP--------IVLISGGVG
+1fnc_           GETIKGVCSNFLCDLKPG---AEVKLTGPVGK-EMLMPKDPNAT-------IIMLGTGTG
+1ep1_B          ETTGTYKLSKLESG-------AKVDVMGPLGNGFPVAEVTSTDK-------ILIIGGGIG
+                             .           .    .    :                 ::. * .
+
+1krh_A          IAPFLSMLQVLE-QKGSEHPVR----LVFGVTQDCDLVALEQLDALQQKLPW--------
+1qfj_A          FSYARSILLTAL-ARNPNRDIT----IYWGGREEQHLYDLCELEALSLKHPG--------
+1fdr_           IGPYLSILRLGK-DLDRFKNLV----LVHAARYAADLSYLPLMQELEKRYEG--------
+1ndh_           ITPMLQVIRAIMKDPDDHTVCH----LLFANQTEKDILLRPELEELRNEHSAR-------
+2pia_           ITPMLSMARQLR--AEGLRSFR----LYYLTRDPEGTAFFDELTSDEWRSDVKIHHDHGD
+1cqx_A          LTPMVSMLKVAL--QAPPRQVV----FVHGARNSAVHAMRDRLREAAKTYEN--------
+1fnc_           IAPFRSFLWKMFFEKHDDYKFNGLAWLFLGVPTSSSLLYKEEFEKMKEKAPDN-------
+1ep1_B          VPPLYELAKQLEKTGCQMTILLG----FASENVKILENEFSNLKNVTLKIATD-------
+                .    ..                                   :                 
+
+1krh_A          ----FEYRTVVAHA---------------ESQHE-RKGYVTGHIEYDWLNGGE-------
+1qfj_A          ----LQVVPVVEQP---------------EAGWRGRTGTVLTAVLQDHGTLAE-------
+1fdr_           ----KLRIQTVVSR---------------ETAAGSLTGRIPALIESGELESTIGLPMNKE
+1ndh_           ----FKLWYTVDRA---------------PEAWDYSQGFVNEEMIRDHLPPPE------E
+2pia_           PTKAFDFWSVFEKSKPAQHVYCCGPQALMDTVRDMTGHWPSGTVHFESFGATNTNARENT
+1cqx_A          ----LDLFVFYDQP--------------LPEDVQGRDYDYPGLVDVKQIEKSILLP----
+1fnc_           ----FRLDFAVSRE---------------QTNEKGEKMYIQTRMAQYAVELWEMLK--KD
+1ep1_B          ----DGSYGTKGHVG------------MLMNEIDFEVDALYTCGAPAMLKAVAKKYDQLE
+                                                                            
+
+1krh_A          -VDVYLCGPVPMVEAVRSWLDTQGIQPANFLFEKFSAN----------------------
+1qfj_A          -HDIYIAGRFEMAKIARDLFCSERNAREDRLFGDAFAFI---------------------
+1fdr_           TSHVMLCGNPQMVRDTQQLLKETRQMTKHLRRRPGHMTAEHYW-----------------
+1ndh_           EPLVLMCGPPPMIQYACLPNLERVGHPKERCFAF--------------------------
+2pia_           PFTVRLSRSGTSFEIPANRSILEVLRDANVRVPSSCESGTCGSCKTALCSGEADHRDMVL
+1cqx_A          DADYYICGPIPFMRMQHDALKNLGIHEARIHYEVFGPDLFAE------------------
+1fnc_           NTYVYMCGLKGMEKGIDDIMVSLAAAEGIDWIEYKRQLKKAEQWNVEVY-----------
+1ep1_B          RLYISMESRMACGIGACYACVEHDKEDESHALKVCEDGPVFLGKQLSL------------
+                     :                                                      
+
+1krh_A          -------------------------
+1qfj_A          -------------------------
+1fdr_           -------------------------
+1ndh_           -------------------------
+2pia_           RDDEKGTQIMVCVSRAKSAELVLDL
+1cqx_A          -------------------------
+1fnc_           -------------------------
+1ep1_B          -------------------------
+                                         
