@@ -55,8 +55,9 @@ namespace std
 }
 
 // constants
-double GAP_OPEN = -10, GAP_EXT = -0.5;
+double GAP_OPEN = -10, GAP_EXT = -1;
 bool NJ_tree = false;
+string output_file = "izgraden_msa.txt", tree_file = "guide_tree.txt";
 
 void print_help()
 {
@@ -64,8 +65,10 @@ void print_help()
          << "Options:\n"
          << "  -h, --help       Show this help message and exit\n"
          << "  -g, --gap        Value for gap open penalty (default: -10)\n"
-         << "  -e, --ext        Value for gap extend penalty (default: -0.5)\n"
+         << "  -e, --ext        Value for gap extend penalty (default: -1)\n"
          << "  -n, --njt        Use neighbor-joining tree instead of UPGMA\n"
+         << "  -o, --out        Output file (default: izgraden_msa.txt)\n"
+         << "  -t, --tree       Output tree (default: guide_tree.txt)\n"
          << "\n";
 }
 
@@ -658,7 +661,7 @@ vector<string> SplitString(string str, char c)
     return ret;
 }
 
-string IzgradiPoStablu(string stablo, unordered_map<string, vector<vector<char>>> &filogen_stablo_map, string &zadnji, const vector<unique_ptr<FastaSequence>> &sequences)
+string BuildByTree(string stablo, unordered_map<string, vector<vector<char>>> &filogen_stablo_map, string &zadnji, const vector<unique_ptr<FastaSequence>> &sequences)
 {
     if (CountInString(stablo, ',') == 1)
     {
@@ -709,10 +712,10 @@ string IzgradiPoStablu(string stablo, unordered_map<string, vector<vector<char>>
         {
             if (stablo[i] == ',' && l_zagrada - d_zagrada == 1)
             {
-                string temp1 = IzgradiPoStablu(stablo.substr(1, i - 1), filogen_stablo_map, zadnji, sequences);
-                string temp2 = IzgradiPoStablu(stablo.substr(i + 1, stablo.size() - i - 2), filogen_stablo_map, zadnji, sequences);
+                string temp1 = BuildByTree(stablo.substr(1, i - 1), filogen_stablo_map, zadnji, sequences);
+                string temp2 = BuildByTree(stablo.substr(i + 1, stablo.size() - i - 2), filogen_stablo_map, zadnji, sequences);
                 stablo = '(' + temp1 + ',' + temp2 + ')';
-                stablo = IzgradiPoStablu(stablo, filogen_stablo_map, zadnji, sequences);
+                stablo = BuildByTree(stablo, filogen_stablo_map, zadnji, sequences);
             }
             else if (stablo[i] == '(')
                 l_zagrada++;
@@ -731,13 +734,15 @@ int main(int argc, char *argv[])
         {"gap", required_argument, nullptr, 'g'},
         {"ext", required_argument, nullptr, 'e'},
         {"njt", no_argument, nullptr, 'n'},
+        {"out", required_argument, nullptr, 'o'},
+        {"tree", required_argument, nullptr, 't'},
         {nullptr, 0, nullptr, 0}};
 
     int option_index = 0;
     int opt;
 
     // Parse command line arguments
-    while ((opt = getopt_long(argc, argv, "hg:e:n", long_options, &option_index)) != -1)
+    while ((opt = getopt_long(argc, argv, "hg:e:o:t:n", long_options, &option_index)) != -1)
     {
         switch (opt)
         {
@@ -752,6 +757,12 @@ int main(int argc, char *argv[])
             break;
         case 'n':
             NJ_tree = true;
+            break;
+        case 'o':
+            output_file = optarg;
+            break;
+        case 't':
+            tree_file = optarg;
             break;
         case '?':
             print_help();
@@ -779,12 +790,14 @@ int main(int argc, char *argv[])
     // parse file
     auto sequences = parser->Parse(-1);
 
+    /*
     for (int i = 0; i < sequences.size(); i++)
     {
         cout << sequences[i]->name << endl
              << sequences[i]->data << endl
              << endl;
     }
+    */
 
     unordered_map<pair<string, string>, double> alignments;
     double max_align = numeric_limits<double>::min();
@@ -797,7 +810,7 @@ int main(int argc, char *argv[])
             alignments.insert({par, (double)Align(sequences[i]->data, sequences[j]->data, &trenpath)});
             if ((double)alignments[par] > max_align)
                 max_align = (double)alignments[par];
-            cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
+            // cout << "Align(" << i + 1 << "," << j + 1 << ") : " << alignments[par] << endl;
         }
     }
 
@@ -837,27 +850,24 @@ int main(int argc, char *argv[])
             continue;
         final_order.push_back(stoi(filogen_stablo.substr(poc_ind_broja, i - poc_ind_broja + 1)));
     }
-
+    /*
     for (int i = 0; i < final_order.size(); i++)
     {
         cout << final_order[i] << " ";
     }
     cout << endl;
-
-    // cout << "Tree created." << endl;
-    ofstream filogen("filogen_stablo.txt");
+    */
+    ofstream filogen(tree_file);
     filogen << filogen_stablo;
     filogen.close();
-    // cout << filogen_stablo << endl;
 
     unordered_map<string, vector<vector<char>>> filogen_stablo_map;
     string zadnji_kljuc;
 
-    IzgradiPoStablu(filogen_stablo, filogen_stablo_map, zadnji_kljuc, sequences);
+    cout << "Building by tree..." << endl;
+    BuildByTree(filogen_stablo, filogen_stablo_map, zadnji_kljuc, sequences);
 
-    int br_umetanja = 0;
-
-    ofstream complete_msa("izgraden_msa.txt");
+    ofstream complete_msa(output_file);
 
     complete_msa << "PileUp" << endl
                  << endl
@@ -889,8 +899,6 @@ int main(int argc, char *argv[])
                     izadi_van = 1;
                     break;
                 }
-                if (filogen_stablo_map[zadnji_kljuc][okreti * 50 + j][i] == '-')
-                    br_umetanja++;
                 complete_msa << filogen_stablo_map[zadnji_kljuc][okreti * 50 + j][i];
             }
             complete_msa << endl;
@@ -901,7 +909,7 @@ int main(int argc, char *argv[])
     }
     complete_msa.close();
 
-    cout << "broj umetanja je " << br_umetanja << endl;
+    cout << "output saved in " << output_file << endl;
 
     return 0;
 }

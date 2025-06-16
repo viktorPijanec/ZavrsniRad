@@ -1,0 +1,9 @@
+Using GCG format reference alignment
+
+Comparing test alignment in bb3_release/RV40/BB40049.aln
+with reference alignment in bb3_release/RV40/BB40049.msf
+
+	SP score= 0.719
+
+	TC score= 0.000
+auto bb3_release/RV40/BB40049.aln 0.719 0.000
