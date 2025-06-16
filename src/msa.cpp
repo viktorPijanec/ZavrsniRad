@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <set>
+#include <cmath>
 #include <algorithm>
 #include <getopt.h>
 #include "bioparser/fasta_parser.hpp"
